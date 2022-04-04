@@ -13,15 +13,15 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'auth_service.pb.dart' as $0;
 export 'auth_service.pb.dart';
 
-class CosmosGovClient extends $grpc.Client {
+class AuthServiceClient extends $grpc.Client {
   static final _$tokenLogin =
       $grpc.ClientMethod<$0.TokenLoginRequest, $0.TokenLoginResponse>(
-          '/cosmosgov_grpc.CosmosGov/TokenLogin',
+          '/cosmosgov_grpc.AuthService/TokenLogin',
           ($0.TokenLoginRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.TokenLoginResponse.fromBuffer(value));
 
-  CosmosGovClient($grpc.ClientChannel channel,
+  AuthServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
@@ -33,10 +33,10 @@ class CosmosGovClient extends $grpc.Client {
   }
 }
 
-abstract class CosmosGovServiceBase extends $grpc.Service {
-  $core.String get $name => 'cosmosgov_grpc.CosmosGov';
+abstract class AuthServiceBase extends $grpc.Service {
+  $core.String get $name => 'cosmosgov_grpc.AuthService';
 
-  CosmosGovServiceBase() {
+  AuthServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.TokenLoginRequest, $0.TokenLoginResponse>(
         'TokenLogin',
         tokenLogin_Pre,

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package tutorial;
+
+//option go_package = "github.com/shifty11/cosmos-gov/api/protobuf/loginpb";
+option go_package = "protobuf/loginpb";
+
+service CosmosGov {
+  rpc Login (TokenLoginRequest) returns (TokenLoginResponse) {}
+}
+
+message TokenLoginRequest {
+  string token = 1;
+}
+
+message TokenLoginResponse {
+  string jwt = 1;
+}

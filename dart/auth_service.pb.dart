@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: login.proto
+//  source: auth_service.proto
 //
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
@@ -8,21 +8,36 @@
 import 'dart:async' as $async;
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'auth_service.pbenum.dart';
+
+export 'auth_service.pbenum.dart';
+
 class TokenLoginRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenLoginRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'tutorial'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenLoginRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token')
+    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatId', protoName: 'chatId')
+    ..e<TokenLoginRequest_Type>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'TYPE', $pb.PbFieldType.OE, protoName: 'TYPE', defaultOrMaker: TokenLoginRequest_Type.TELEGRAM, valueOf: TokenLoginRequest_Type.valueOf, enumValues: TokenLoginRequest_Type.values)
     ..hasRequiredFields = false
   ;
 
   TokenLoginRequest._() : super();
   factory TokenLoginRequest({
     $core.String? token,
+    $fixnum.Int64? chatId,
+    TokenLoginRequest_Type? tYPE,
   }) {
     final _result = create();
     if (token != null) {
       _result.token = token;
+    }
+    if (chatId != null) {
+      _result.chatId = chatId;
+    }
+    if (tYPE != null) {
+      _result.tYPE = tYPE;
     }
     return _result;
   }
@@ -55,21 +70,39 @@ class TokenLoginRequest extends $pb.GeneratedMessage {
   $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
   void clearToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get chatId => $_getI64(1);
+  @$pb.TagNumber(2)
+  set chatId($fixnum.Int64 v) { $_setInt64(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasChatId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChatId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  TokenLoginRequest_Type get tYPE => $_getN(2);
+  @$pb.TagNumber(3)
+  set tYPE(TokenLoginRequest_Type v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasTYPE() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTYPE() => clearField(3);
 }
 
 class TokenLoginResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenLoginResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'tutorial'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'jwt')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenLoginResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
     ..hasRequiredFields = false
   ;
 
   TokenLoginResponse._() : super();
   factory TokenLoginResponse({
-    $core.String? jwt,
+    $core.String? accessToken,
   }) {
     final _result = create();
-    if (jwt != null) {
-      _result.jwt = jwt;
+    if (accessToken != null) {
+      _result.accessToken = accessToken;
     }
     return _result;
   }
@@ -95,22 +128,22 @@ class TokenLoginResponse extends $pb.GeneratedMessage {
   static TokenLoginResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get jwt => $_getSZ(0);
+  $core.String get accessToken => $_getSZ(0);
   @$pb.TagNumber(1)
-  set jwt($core.String v) { $_setString(0, v); }
+  set accessToken($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasJwt() => $_has(0);
+  $core.bool hasAccessToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearJwt() => clearField(1);
+  void clearAccessToken() => clearField(1);
 }
 
 class CosmosGovApi {
   $pb.RpcClient _client;
   CosmosGovApi(this._client);
 
-  $async.Future<TokenLoginResponse> login($pb.ClientContext? ctx, TokenLoginRequest request) {
+  $async.Future<TokenLoginResponse> tokenLogin($pb.ClientContext? ctx, TokenLoginRequest request) {
     var emptyResponse = TokenLoginResponse();
-    return _client.invoke<TokenLoginResponse>(ctx, 'CosmosGov', 'Login', request, emptyResponse);
+    return _client.invoke<TokenLoginResponse>(ctx, 'CosmosGov', 'TokenLogin', request, emptyResponse);
   }
 }
 

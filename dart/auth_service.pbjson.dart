@@ -40,18 +40,3 @@ const TokenLoginResponse$json = const {
 
 /// Descriptor for `TokenLoginResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List tokenLoginResponseDescriptor = $convert.base64Decode('ChJUb2tlbkxvZ2luUmVzcG9uc2USIQoMYWNjZXNzX3Rva2VuGAEgASgJUgthY2Nlc3NUb2tlbg==');
-const $core.Map<$core.String, $core.dynamic> CosmosGovServiceBase$json = const {
-  '1': 'CosmosGov',
-  '2': const [
-    const {'1': 'TokenLogin', '2': '.cosmosgov_grpc.TokenLoginRequest', '3': '.cosmosgov_grpc.TokenLoginResponse', '4': const {}},
-  ],
-};
-
-@$core.Deprecated('Use cosmosGovServiceDescriptor instead')
-const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> CosmosGovServiceBase$messageJson = const {
-  '.cosmosgov_grpc.TokenLoginRequest': TokenLoginRequest$json,
-  '.cosmosgov_grpc.TokenLoginResponse': TokenLoginResponse$json,
-};
-
-/// Descriptor for `CosmosGov`. Decode as a `google.protobuf.ServiceDescriptorProto`.
-final $typed_data.Uint8List cosmosGovServiceDescriptor = $convert.base64Decode('CglDb3Ntb3NHb3YSVQoKVG9rZW5Mb2dpbhIhLmNvc21vc2dvdl9ncnBjLlRva2VuTG9naW5SZXF1ZXN0GiIuY29zbW9zZ292X2dycGMuVG9rZW5Mb2dpblJlc3BvbnNlIgA=');

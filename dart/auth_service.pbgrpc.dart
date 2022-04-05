@@ -20,9 +20,9 @@ class AuthServiceClient extends $grpc.Client {
           ($0.TokenLoginRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.TokenLoginResponse.fromBuffer(value));
-  static final _$refreshToken = $grpc.ClientMethod<$0.RefreshAccessTokenRequest,
-          $0.RefreshAccessTokenResponse>(
-      '/cosmosgov_grpc.AuthService/RefreshToken',
+  static final _$refreshAccessToken = $grpc.ClientMethod<
+          $0.RefreshAccessTokenRequest, $0.RefreshAccessTokenResponse>(
+      '/cosmosgov_grpc.AuthService/RefreshAccessToken',
       ($0.RefreshAccessTokenRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $0.RefreshAccessTokenResponse.fromBuffer(value));
@@ -38,10 +38,10 @@ class AuthServiceClient extends $grpc.Client {
     return $createUnaryCall(_$tokenLogin, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.RefreshAccessTokenResponse> refreshToken(
+  $grpc.ResponseFuture<$0.RefreshAccessTokenResponse> refreshAccessToken(
       $0.RefreshAccessTokenRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$refreshToken, request, options: options);
+    return $createUnaryCall(_$refreshAccessToken, request, options: options);
   }
 }
 
@@ -58,8 +58,8 @@ abstract class AuthServiceBase extends $grpc.Service {
         ($0.TokenLoginResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.RefreshAccessTokenRequest,
             $0.RefreshAccessTokenResponse>(
-        'RefreshToken',
-        refreshToken_Pre,
+        'RefreshAccessToken',
+        refreshAccessToken_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
@@ -72,14 +72,14 @@ abstract class AuthServiceBase extends $grpc.Service {
     return tokenLogin(call, await request);
   }
 
-  $async.Future<$0.RefreshAccessTokenResponse> refreshToken_Pre(
+  $async.Future<$0.RefreshAccessTokenResponse> refreshAccessToken_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.RefreshAccessTokenRequest> request) async {
-    return refreshToken(call, await request);
+    return refreshAccessToken(call, await request);
   }
 
   $async.Future<$0.TokenLoginResponse> tokenLogin(
       $grpc.ServiceCall call, $0.TokenLoginRequest request);
-  $async.Future<$0.RefreshAccessTokenResponse> refreshToken(
+  $async.Future<$0.RefreshAccessTokenResponse> refreshAccessToken(
       $grpc.ServiceCall call, $0.RefreshAccessTokenRequest request);
 }

@@ -5,6 +5,7 @@ option go_package = "protobuf/auth_service";
 
 service AuthService {
   rpc TokenLogin (TokenLoginRequest) returns (TokenLoginResponse) {}
+  rpc RefreshToken (RefreshTokenRequest) returns (RefreshTokenResponse) {}
 }
 
 message TokenLoginRequest {
@@ -19,4 +20,14 @@ message TokenLoginRequest {
 
 message TokenLoginResponse {
   string access_token = 1;
+  string refresh_token = 2;
+}
+
+message RefreshTokenRequest {
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message RefreshTokenResponse {
+  string refresh_token = 2;
 }

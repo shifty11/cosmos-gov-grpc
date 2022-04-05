@@ -92,16 +92,21 @@ class TokenLoginRequest extends $pb.GeneratedMessage {
 class TokenLoginResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenLoginResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken')
     ..hasRequiredFields = false
   ;
 
   TokenLoginResponse._() : super();
   factory TokenLoginResponse({
     $core.String? accessToken,
+    $core.String? refreshToken,
   }) {
     final _result = create();
     if (accessToken != null) {
       _result.accessToken = accessToken;
+    }
+    if (refreshToken != null) {
+      _result.refreshToken = refreshToken;
     }
     return _result;
   }
@@ -134,5 +139,122 @@ class TokenLoginResponse extends $pb.GeneratedMessage {
   $core.bool hasAccessToken() => $_has(0);
   @$pb.TagNumber(1)
   void clearAccessToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get refreshToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set refreshToken($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRefreshToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRefreshToken() => clearField(2);
+}
+
+class RefreshTokenRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshTokenRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken')
+    ..hasRequiredFields = false
+  ;
+
+  RefreshTokenRequest._() : super();
+  factory RefreshTokenRequest({
+    $core.String? accessToken,
+    $core.String? refreshToken,
+  }) {
+    final _result = create();
+    if (accessToken != null) {
+      _result.accessToken = accessToken;
+    }
+    if (refreshToken != null) {
+      _result.refreshToken = refreshToken;
+    }
+    return _result;
+  }
+  factory RefreshTokenRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RefreshTokenRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RefreshTokenRequest clone() => RefreshTokenRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RefreshTokenRequest copyWith(void Function(RefreshTokenRequest) updates) => super.copyWith((message) => updates(message as RefreshTokenRequest)) as RefreshTokenRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RefreshTokenRequest create() => RefreshTokenRequest._();
+  RefreshTokenRequest createEmptyInstance() => create();
+  static $pb.PbList<RefreshTokenRequest> createRepeated() => $pb.PbList<RefreshTokenRequest>();
+  @$core.pragma('dart2js:noInline')
+  static RefreshTokenRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RefreshTokenRequest>(create);
+  static RefreshTokenRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get accessToken => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set accessToken($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAccessToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccessToken() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get refreshToken => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set refreshToken($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRefreshToken() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearRefreshToken() => clearField(2);
+}
+
+class RefreshTokenResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshTokenResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken')
+    ..hasRequiredFields = false
+  ;
+
+  RefreshTokenResponse._() : super();
+  factory RefreshTokenResponse({
+    $core.String? refreshToken,
+  }) {
+    final _result = create();
+    if (refreshToken != null) {
+      _result.refreshToken = refreshToken;
+    }
+    return _result;
+  }
+  factory RefreshTokenResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RefreshTokenResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RefreshTokenResponse clone() => RefreshTokenResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RefreshTokenResponse copyWith(void Function(RefreshTokenResponse) updates) => super.copyWith((message) => updates(message as RefreshTokenResponse)) as RefreshTokenResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RefreshTokenResponse create() => RefreshTokenResponse._();
+  RefreshTokenResponse createEmptyInstance() => create();
+  static $pb.PbList<RefreshTokenResponse> createRepeated() => $pb.PbList<RefreshTokenResponse>();
+  @$core.pragma('dart2js:noInline')
+  static RefreshTokenResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RefreshTokenResponse>(create);
+  static RefreshTokenResponse? _defaultInstance;
+
+  @$pb.TagNumber(2)
+  $core.String get refreshToken => $_getSZ(0);
+  @$pb.TagNumber(2)
+  set refreshToken($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasRefreshToken() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearRefreshToken() => clearField(2);
 }
 

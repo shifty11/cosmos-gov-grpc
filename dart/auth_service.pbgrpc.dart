@@ -20,12 +20,12 @@ class AuthServiceClient extends $grpc.Client {
           ($0.TokenLoginRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.TokenLoginResponse.fromBuffer(value));
-  static final _$refreshToken =
-      $grpc.ClientMethod<$0.RefreshTokenRequest, $0.RefreshTokenResponse>(
-          '/cosmosgov_grpc.AuthService/RefreshToken',
-          ($0.RefreshTokenRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) =>
-              $0.RefreshTokenResponse.fromBuffer(value));
+  static final _$refreshToken = $grpc.ClientMethod<$0.RefreshAccessTokenRequest,
+          $0.RefreshAccessTokenResponse>(
+      '/cosmosgov_grpc.AuthService/RefreshToken',
+      ($0.RefreshAccessTokenRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) =>
+          $0.RefreshAccessTokenResponse.fromBuffer(value));
 
   AuthServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -38,8 +38,8 @@ class AuthServiceClient extends $grpc.Client {
     return $createUnaryCall(_$tokenLogin, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.RefreshTokenResponse> refreshToken(
-      $0.RefreshTokenRequest request,
+  $grpc.ResponseFuture<$0.RefreshAccessTokenResponse> refreshToken(
+      $0.RefreshAccessTokenRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$refreshToken, request, options: options);
   }
@@ -56,15 +56,15 @@ abstract class AuthServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.TokenLoginRequest.fromBuffer(value),
         ($0.TokenLoginResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.RefreshTokenRequest, $0.RefreshTokenResponse>(
-            'RefreshToken',
-            refreshToken_Pre,
-            false,
-            false,
-            ($core.List<$core.int> value) =>
-                $0.RefreshTokenRequest.fromBuffer(value),
-            ($0.RefreshTokenResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RefreshAccessTokenRequest,
+            $0.RefreshAccessTokenResponse>(
+        'RefreshToken',
+        refreshToken_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.RefreshAccessTokenRequest.fromBuffer(value),
+        ($0.RefreshAccessTokenResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.TokenLoginResponse> tokenLogin_Pre($grpc.ServiceCall call,
@@ -72,14 +72,14 @@ abstract class AuthServiceBase extends $grpc.Service {
     return tokenLogin(call, await request);
   }
 
-  $async.Future<$0.RefreshTokenResponse> refreshToken_Pre(
+  $async.Future<$0.RefreshAccessTokenResponse> refreshToken_Pre(
       $grpc.ServiceCall call,
-      $async.Future<$0.RefreshTokenRequest> request) async {
+      $async.Future<$0.RefreshAccessTokenRequest> request) async {
     return refreshToken(call, await request);
   }
 
   $async.Future<$0.TokenLoginResponse> tokenLogin(
       $grpc.ServiceCall call, $0.TokenLoginRequest request);
-  $async.Future<$0.RefreshTokenResponse> refreshToken(
-      $grpc.ServiceCall call, $0.RefreshTokenRequest request);
+  $async.Future<$0.RefreshAccessTokenResponse> refreshToken(
+      $grpc.ServiceCall call, $0.RefreshAccessTokenRequest request);
 }

@@ -44,10 +44,13 @@ final $typed_data.Uint8List tokenLoginResponseDescriptor = $convert.base64Decode
 @$core.Deprecated('Use refreshAccessTokenRequestDescriptor instead')
 const RefreshAccessTokenRequest$json = const {
   '1': 'RefreshAccessTokenRequest',
+  '2': const [
+    const {'1': 'refresh_token', '3': 1, '4': 1, '5': 9, '10': 'refreshToken'},
+  ],
 };
 
 /// Descriptor for `RefreshAccessTokenRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List refreshAccessTokenRequestDescriptor = $convert.base64Decode('ChlSZWZyZXNoQWNjZXNzVG9rZW5SZXF1ZXN0');
+final $typed_data.Uint8List refreshAccessTokenRequestDescriptor = $convert.base64Decode('ChlSZWZyZXNoQWNjZXNzVG9rZW5SZXF1ZXN0EiMKDXJlZnJlc2hfdG9rZW4YASABKAlSDHJlZnJlc2hUb2tlbg==');
 @$core.Deprecated('Use refreshAccessTokenResponseDescriptor instead')
 const RefreshAccessTokenResponse$json = const {
   '1': 'RefreshAccessTokenResponse',

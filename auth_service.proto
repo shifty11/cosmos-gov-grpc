@@ -1,7 +1,7 @@
 syntax = "proto3";
 package cosmosgov_grpc;
 
-option go_package = "protobuf/auth_service";
+option go_package = "go/auth_service";
 
 service AuthService {
   rpc TokenLogin (TokenLoginRequest) returns (TokenLoginResponse) {}

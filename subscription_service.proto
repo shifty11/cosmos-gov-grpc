@@ -1,0 +1,21 @@
+syntax = "proto3";
+package cosmosgov_grpc;
+
+option go_package = "go/subscription_service";
+
+service SubscriptionService {
+  rpc GetSubscriptions (GetSubscriptionsRequest) returns (GetSubscriptionsResponse) {}
+}
+
+message Subscription {
+  string name = 1;
+  string display_name = 2;
+  bool is_subscribed = 3;
+}
+
+message GetSubscriptionsRequest {
+}
+
+message GetSubscriptionsResponse {
+  repeated Subscription subscriptions = 1;
+}

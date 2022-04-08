@@ -5,6 +5,7 @@ option go_package = "go/subscription_service";
 
 service SubscriptionService {
   rpc GetSubscriptions (GetSubscriptionsRequest) returns (GetSubscriptionsResponse) {}
+  rpc ToggleSubscription (ToggleSubscriptionRequest) returns (ToggleSubscriptionResponse) {}
 }
 
 message Subscription {
@@ -19,3 +20,12 @@ message GetSubscriptionsRequest {
 message GetSubscriptionsResponse {
   repeated Subscription subscriptions = 1;
 }
+
+message ToggleSubscriptionRequest {
+  string name = 1;
+}
+
+message ToggleSubscriptionResponse {
+  Subscription subscription = 1;
+}
+

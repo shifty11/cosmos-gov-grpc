@@ -37,3 +37,23 @@ const GetSubscriptionsResponse$json = const {
 
 /// Descriptor for `GetSubscriptionsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSubscriptionsResponseDescriptor = $convert.base64Decode('ChhHZXRTdWJzY3JpcHRpb25zUmVzcG9uc2USQgoNc3Vic2NyaXB0aW9ucxgBIAMoCzIcLmNvc21vc2dvdl9ncnBjLlN1YnNjcmlwdGlvblINc3Vic2NyaXB0aW9ucw==');
+@$core.Deprecated('Use toggleSubscriptionRequestDescriptor instead')
+const ToggleSubscriptionRequest$json = const {
+  '1': 'ToggleSubscriptionRequest',
+  '2': const [
+    const {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
+  ],
+};
+
+/// Descriptor for `ToggleSubscriptionRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List toggleSubscriptionRequestDescriptor = $convert.base64Decode('ChlUb2dnbGVTdWJzY3JpcHRpb25SZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWU=');
+@$core.Deprecated('Use toggleSubscriptionResponseDescriptor instead')
+const ToggleSubscriptionResponse$json = const {
+  '1': 'ToggleSubscriptionResponse',
+  '2': const [
+    const {'1': 'subscription', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.Subscription', '10': 'subscription'},
+  ],
+};
+
+/// Descriptor for `ToggleSubscriptionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List toggleSubscriptionResponseDescriptor = $convert.base64Decode('ChpUb2dnbGVTdWJzY3JpcHRpb25SZXNwb25zZRJACgxzdWJzY3JpcHRpb24YASABKAsyHC5jb3Ntb3Nnb3ZfZ3JwYy5TdWJzY3JpcHRpb25SDHN1YnNjcmlwdGlvbg==');

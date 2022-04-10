@@ -51,9 +51,9 @@ final $typed_data.Uint8List toggleSubscriptionRequestDescriptor = $convert.base6
 const ToggleSubscriptionResponse$json = const {
   '1': 'ToggleSubscriptionResponse',
   '2': const [
-    const {'1': 'subscription', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.Subscription', '10': 'subscription'},
+    const {'1': 'isSubscribed', '3': 1, '4': 1, '5': 8, '10': 'isSubscribed'},
   ],
 };
 
 /// Descriptor for `ToggleSubscriptionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List toggleSubscriptionResponseDescriptor = $convert.base64Decode('ChpUb2dnbGVTdWJzY3JpcHRpb25SZXNwb25zZRJACgxzdWJzY3JpcHRpb24YASABKAsyHC5jb3Ntb3Nnb3ZfZ3JwYy5TdWJzY3JpcHRpb25SDHN1YnNjcmlwdGlvbg==');
+final $typed_data.Uint8List toggleSubscriptionResponseDescriptor = $convert.base64Decode('ChpUb2dnbGVTdWJzY3JpcHRpb25SZXNwb25zZRIiCgxpc1N1YnNjcmliZWQYASABKAhSDGlzU3Vic2NyaWJlZA==');

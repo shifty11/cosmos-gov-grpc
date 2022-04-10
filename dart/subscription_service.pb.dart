@@ -203,17 +203,17 @@ class ToggleSubscriptionRequest extends $pb.GeneratedMessage {
 
 class ToggleSubscriptionResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ToggleSubscriptionResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOM<Subscription>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subscription', subBuilder: Subscription.create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isSubscribed', protoName: 'isSubscribed')
     ..hasRequiredFields = false
   ;
 
   ToggleSubscriptionResponse._() : super();
   factory ToggleSubscriptionResponse({
-    Subscription? subscription,
+    $core.bool? isSubscribed,
   }) {
     final _result = create();
-    if (subscription != null) {
-      _result.subscription = subscription;
+    if (isSubscribed != null) {
+      _result.isSubscribed = isSubscribed;
     }
     return _result;
   }
@@ -239,14 +239,12 @@ class ToggleSubscriptionResponse extends $pb.GeneratedMessage {
   static ToggleSubscriptionResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  Subscription get subscription => $_getN(0);
+  $core.bool get isSubscribed => $_getBF(0);
   @$pb.TagNumber(1)
-  set subscription(Subscription v) { setField(1, v); }
+  set isSubscribed($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSubscription() => $_has(0);
+  $core.bool hasIsSubscribed() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSubscription() => clearField(1);
-  @$pb.TagNumber(1)
-  Subscription ensureSubscription() => $_ensure(0);
+  void clearIsSubscribed() => clearField(1);
 }
 

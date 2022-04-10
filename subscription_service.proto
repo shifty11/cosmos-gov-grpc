@@ -26,6 +26,6 @@ message ToggleSubscriptionRequest {
 }
 
 message ToggleSubscriptionResponse {
-  Subscription subscription = 1;
+  bool isSubscribed = 1;
 }
 

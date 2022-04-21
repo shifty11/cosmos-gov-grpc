@@ -7,7 +7,12 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
+
+import 'subscription_service.pbenum.dart';
+
+export 'subscription_service.pbenum.dart';
 
 class Subscription extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Subscription', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
@@ -84,6 +89,89 @@ class Subscription extends $pb.GeneratedMessage {
   void clearIsSubscribed() => clearField(3);
 }
 
+class ChatRoom extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ChatRoom', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..e<ChatRoom_Type>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'TYPE', $pb.PbFieldType.OE, protoName: 'TYPE', defaultOrMaker: ChatRoom_Type.TELEGRAM, valueOf: ChatRoom_Type.valueOf, enumValues: ChatRoom_Type.values)
+    ..pc<Subscription>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subscriptions', $pb.PbFieldType.PM, subBuilder: Subscription.create)
+    ..hasRequiredFields = false
+  ;
+
+  ChatRoom._() : super();
+  factory ChatRoom({
+    $fixnum.Int64? id,
+    $core.String? name,
+    ChatRoom_Type? tYPE,
+    $core.Iterable<Subscription>? subscriptions,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (name != null) {
+      _result.name = name;
+    }
+    if (tYPE != null) {
+      _result.tYPE = tYPE;
+    }
+    if (subscriptions != null) {
+      _result.subscriptions.addAll(subscriptions);
+    }
+    return _result;
+  }
+  factory ChatRoom.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ChatRoom.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ChatRoom clone() => ChatRoom()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ChatRoom copyWith(void Function(ChatRoom) updates) => super.copyWith((message) => updates(message as ChatRoom)) as ChatRoom; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ChatRoom create() => ChatRoom._();
+  ChatRoom createEmptyInstance() => create();
+  static $pb.PbList<ChatRoom> createRepeated() => $pb.PbList<ChatRoom>();
+  @$core.pragma('dart2js:noInline')
+  static ChatRoom getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ChatRoom>(create);
+  static ChatRoom? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get id => $_getI64(0);
+  @$pb.TagNumber(1)
+  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  ChatRoom_Type get tYPE => $_getN(2);
+  @$pb.TagNumber(3)
+  set tYPE(ChatRoom_Type v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasTYPE() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTYPE() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.List<Subscription> get subscriptions => $_getList(3);
+}
+
 class GetSubscriptionsRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSubscriptionsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..hasRequiredFields = false
@@ -115,17 +203,17 @@ class GetSubscriptionsRequest extends $pb.GeneratedMessage {
 
 class GetSubscriptionsResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSubscriptionsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..pc<Subscription>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subscriptions', $pb.PbFieldType.PM, subBuilder: Subscription.create)
+    ..pc<ChatRoom>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatRooms', $pb.PbFieldType.PM, subBuilder: ChatRoom.create)
     ..hasRequiredFields = false
   ;
 
   GetSubscriptionsResponse._() : super();
   factory GetSubscriptionsResponse({
-    $core.Iterable<Subscription>? subscriptions,
+    $core.Iterable<ChatRoom>? chatRooms,
   }) {
     final _result = create();
-    if (subscriptions != null) {
-      _result.subscriptions.addAll(subscriptions);
+    if (chatRooms != null) {
+      _result.chatRooms.addAll(chatRooms);
     }
     return _result;
   }
@@ -151,20 +239,25 @@ class GetSubscriptionsResponse extends $pb.GeneratedMessage {
   static GetSubscriptionsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<Subscription> get subscriptions => $_getList(0);
+  $core.List<ChatRoom> get chatRooms => $_getList(0);
 }
 
 class ToggleSubscriptionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ToggleSubscriptionRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatRoomId', protoName: 'chatRoomId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
   ToggleSubscriptionRequest._() : super();
   factory ToggleSubscriptionRequest({
+    $fixnum.Int64? chatRoomId,
     $core.String? name,
   }) {
     final _result = create();
+    if (chatRoomId != null) {
+      _result.chatRoomId = chatRoomId;
+    }
     if (name != null) {
       _result.name = name;
     }
@@ -192,13 +285,22 @@ class ToggleSubscriptionRequest extends $pb.GeneratedMessage {
   static ToggleSubscriptionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get name => $_getSZ(0);
+  $fixnum.Int64 get chatRoomId => $_getI64(0);
   @$pb.TagNumber(1)
-  set name($core.String v) { $_setString(0, v); }
+  set chatRoomId($fixnum.Int64 v) { $_setInt64(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasName() => $_has(0);
+  $core.bool hasChatRoomId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearName() => clearField(1);
+  void clearChatRoomId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
 }
 
 class ToggleSubscriptionResponse extends $pb.GeneratedMessage {

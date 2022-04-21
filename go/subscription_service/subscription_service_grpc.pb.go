@@ -32,7 +32,7 @@ func NewSubscriptionServiceClient(cc grpc.ClientConnInterface) SubscriptionServi
 
 func (c *subscriptionServiceClient) GetSubscriptions(ctx context.Context, in *GetSubscriptionsRequest, opts ...grpc.CallOption) (*GetSubscriptionsResponse, error) {
 	out := new(GetSubscriptionsResponse)
-	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.SubscriptionService/GetSubscriptions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.SubscriptionService/GetOrCreateSubscriptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ type UnimplementedSubscriptionServiceServer struct {
 }
 
 func (UnimplementedSubscriptionServiceServer) GetSubscriptions(context.Context, *GetSubscriptionsRequest) (*GetSubscriptionsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetSubscriptions not implemented")
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrCreateSubscriptions not implemented")
 }
 func (UnimplementedSubscriptionServiceServer) ToggleSubscription(context.Context, *ToggleSubscriptionRequest) (*ToggleSubscriptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ToggleSubscription not implemented")
@@ -90,7 +90,7 @@ func _SubscriptionService_GetSubscriptions_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cosmosgov_grpc.SubscriptionService/GetSubscriptions",
+		FullMethod: "/cosmosgov_grpc.SubscriptionService/GetOrCreateSubscriptions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SubscriptionServiceServer).GetSubscriptions(ctx, req.(*GetSubscriptionsRequest))
@@ -124,7 +124,7 @@ var SubscriptionService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SubscriptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetSubscriptions",
+			MethodName: "GetOrCreateSubscriptions",
 			Handler:    _SubscriptionService_GetSubscriptions_Handler,
 		},
 		{

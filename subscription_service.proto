@@ -14,15 +14,27 @@ message Subscription {
   bool is_subscribed = 3;
 }
 
+message ChatRoom {
+  int64 id = 1;
+  string name = 2;
+  enum Type {
+    TELEGRAM = 0;
+    DISCORD = 1;
+  }
+  Type TYPE = 3;
+  repeated Subscription subscriptions = 4;
+}
+
 message GetSubscriptionsRequest {
 }
 
 message GetSubscriptionsResponse {
-  repeated Subscription subscriptions = 1;
+  repeated ChatRoom chat_rooms = 1;
 }
 
 message ToggleSubscriptionRequest {
-  string name = 1;
+  int64 chatRoomId = 1;
+  string name = 2;
 }
 
 message ToggleSubscriptionResponse {

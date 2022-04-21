@@ -172,35 +172,6 @@ class ChatRoom extends $pb.GeneratedMessage {
   $core.List<Subscription> get subscriptions => $_getList(3);
 }
 
-class GetSubscriptionsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSubscriptionsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  GetSubscriptionsRequest._() : super();
-  factory GetSubscriptionsRequest() => create();
-  factory GetSubscriptionsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetSubscriptionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetSubscriptionsRequest clone() => GetSubscriptionsRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetSubscriptionsRequest copyWith(void Function(GetSubscriptionsRequest) updates) => super.copyWith((message) => updates(message as GetSubscriptionsRequest)) as GetSubscriptionsRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GetSubscriptionsRequest create() => GetSubscriptionsRequest._();
-  GetSubscriptionsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetSubscriptionsRequest> createRepeated() => $pb.PbList<GetSubscriptionsRequest>();
-  @$core.pragma('dart2js:noInline')
-  static GetSubscriptionsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetSubscriptionsRequest>(create);
-  static GetSubscriptionsRequest? _defaultInstance;
-}
-
 class GetSubscriptionsResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSubscriptionsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..pc<ChatRoom>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatRooms', $pb.PbFieldType.PM, subBuilder: ChatRoom.create)

@@ -19,13 +19,6 @@ const VotePermission$json = const {
 
 /// Descriptor for `VotePermission`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List votePermissionDescriptor = $convert.base64Decode('Cg5Wb3RlUGVybWlzc2lvbhIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEjkKCmV4cGlyZXNfYXQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglleHBpcmVzQXQ=');
-@$core.Deprecated('Use getVotePermissionsRequestDescriptor instead')
-const GetVotePermissionsRequest$json = const {
-  '1': 'GetVotePermissionsRequest',
-};
-
-/// Descriptor for `GetVotePermissionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getVotePermissionsRequestDescriptor = $convert.base64Decode('ChlHZXRWb3RlUGVybWlzc2lvbnNSZXF1ZXN0');
 @$core.Deprecated('Use getVotePermissionsResponseDescriptor instead')
 const GetVotePermissionsResponse$json = const {
   '1': 'GetVotePermissionsResponse',

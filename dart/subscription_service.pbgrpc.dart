@@ -10,36 +10,37 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'subscription_service.pb.dart' as $1;
+import 'google/protobuf/empty.pb.dart' as $1;
+import 'subscription_service.pb.dart' as $2;
 export 'subscription_service.pb.dart';
 
 class SubscriptionServiceClient extends $grpc.Client {
-  static final _$getSubscriptions = $grpc.ClientMethod<
-          $1.GetSubscriptionsRequest, $1.GetSubscriptionsResponse>(
-      '/cosmosgov_grpc.SubscriptionService/GetSubscriptions',
-      ($1.GetSubscriptionsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $1.GetSubscriptionsResponse.fromBuffer(value));
+  static final _$getSubscriptions =
+      $grpc.ClientMethod<$1.Empty, $2.GetSubscriptionsResponse>(
+          '/cosmosgov_grpc.SubscriptionService/GetSubscriptions',
+          ($1.Empty value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $2.GetSubscriptionsResponse.fromBuffer(value));
   static final _$toggleSubscription = $grpc.ClientMethod<
-          $1.ToggleSubscriptionRequest, $1.ToggleSubscriptionResponse>(
+          $2.ToggleSubscriptionRequest, $2.ToggleSubscriptionResponse>(
       '/cosmosgov_grpc.SubscriptionService/ToggleSubscription',
-      ($1.ToggleSubscriptionRequest value) => value.writeToBuffer(),
+      ($2.ToggleSubscriptionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
-          $1.ToggleSubscriptionResponse.fromBuffer(value));
+          $2.ToggleSubscriptionResponse.fromBuffer(value));
 
   SubscriptionServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$1.GetSubscriptionsResponse> getSubscriptions(
-      $1.GetSubscriptionsRequest request,
+  $grpc.ResponseFuture<$2.GetSubscriptionsResponse> getSubscriptions(
+      $1.Empty request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getSubscriptions, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.ToggleSubscriptionResponse> toggleSubscription(
-      $1.ToggleSubscriptionRequest request,
+  $grpc.ResponseFuture<$2.ToggleSubscriptionResponse> toggleSubscription(
+      $2.ToggleSubscriptionRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$toggleSubscription, request, options: options);
   }
@@ -49,40 +50,37 @@ abstract class SubscriptionServiceBase extends $grpc.Service {
   $core.String get $name => 'cosmosgov_grpc.SubscriptionService';
 
   SubscriptionServiceBase() {
-    $addMethod($grpc.ServiceMethod<$1.GetSubscriptionsRequest,
-            $1.GetSubscriptionsResponse>(
+    $addMethod($grpc.ServiceMethod<$1.Empty, $2.GetSubscriptionsResponse>(
         'GetSubscriptions',
         getSubscriptions_Pre,
         false,
         false,
-        ($core.List<$core.int> value) =>
-            $1.GetSubscriptionsRequest.fromBuffer(value),
-        ($1.GetSubscriptionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.ToggleSubscriptionRequest,
-            $1.ToggleSubscriptionResponse>(
+        ($core.List<$core.int> value) => $1.Empty.fromBuffer(value),
+        ($2.GetSubscriptionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.ToggleSubscriptionRequest,
+            $2.ToggleSubscriptionResponse>(
         'ToggleSubscription',
         toggleSubscription_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $1.ToggleSubscriptionRequest.fromBuffer(value),
-        ($1.ToggleSubscriptionResponse value) => value.writeToBuffer()));
+            $2.ToggleSubscriptionRequest.fromBuffer(value),
+        ($2.ToggleSubscriptionResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$1.GetSubscriptionsResponse> getSubscriptions_Pre(
-      $grpc.ServiceCall call,
-      $async.Future<$1.GetSubscriptionsRequest> request) async {
+  $async.Future<$2.GetSubscriptionsResponse> getSubscriptions_Pre(
+      $grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
     return getSubscriptions(call, await request);
   }
 
-  $async.Future<$1.ToggleSubscriptionResponse> toggleSubscription_Pre(
+  $async.Future<$2.ToggleSubscriptionResponse> toggleSubscription_Pre(
       $grpc.ServiceCall call,
-      $async.Future<$1.ToggleSubscriptionRequest> request) async {
+      $async.Future<$2.ToggleSubscriptionRequest> request) async {
     return toggleSubscription(call, await request);
   }
 
-  $async.Future<$1.GetSubscriptionsResponse> getSubscriptions(
-      $grpc.ServiceCall call, $1.GetSubscriptionsRequest request);
-  $async.Future<$1.ToggleSubscriptionResponse> toggleSubscription(
-      $grpc.ServiceCall call, $1.ToggleSubscriptionRequest request);
+  $async.Future<$2.GetSubscriptionsResponse> getSubscriptions(
+      $grpc.ServiceCall call, $1.Empty request);
+  $async.Future<$2.ToggleSubscriptionResponse> toggleSubscription(
+      $grpc.ServiceCall call, $2.ToggleSubscriptionRequest request);
 }

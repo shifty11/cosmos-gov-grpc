@@ -1,10 +1,13 @@
 syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
 package cosmosgov_grpc;
 
 option go_package = "go/subscription_service";
 
 service SubscriptionService {
-  rpc GetSubscriptions (GetSubscriptionsRequest) returns (GetSubscriptionsResponse) {}
+  rpc GetSubscriptions (google.protobuf.Empty) returns (GetSubscriptionsResponse) {}
   rpc ToggleSubscription (ToggleSubscriptionRequest) returns (ToggleSubscriptionResponse) {}
 }
 
@@ -23,9 +26,6 @@ message ChatRoom {
   }
   Type TYPE = 3;
   repeated Subscription subscriptions = 4;
-}
-
-message GetSubscriptionsRequest {
 }
 
 message GetSubscriptionsResponse {

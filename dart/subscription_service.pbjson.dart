@@ -43,13 +43,6 @@ const ChatRoom_Type$json = const {
 
 /// Descriptor for `ChatRoom`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List chatRoomDescriptor = $convert.base64Decode('CghDaGF0Um9vbRIOCgJpZBgBIAEoA1ICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIxCgRUWVBFGAMgASgOMh0uY29zbW9zZ292X2dycGMuQ2hhdFJvb20uVHlwZVIEVFlQRRJCCg1zdWJzY3JpcHRpb25zGAQgAygLMhwuY29zbW9zZ292X2dycGMuU3Vic2NyaXB0aW9uUg1zdWJzY3JpcHRpb25zIiEKBFR5cGUSDAoIVEVMRUdSQU0QABILCgdESVNDT1JEEAE=');
-@$core.Deprecated('Use getSubscriptionsRequestDescriptor instead')
-const GetSubscriptionsRequest$json = const {
-  '1': 'GetSubscriptionsRequest',
-};
-
-/// Descriptor for `GetSubscriptionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getSubscriptionsRequestDescriptor = $convert.base64Decode('ChdHZXRTdWJzY3JpcHRpb25zUmVxdWVzdA==');
 @$core.Deprecated('Use getSubscriptionsResponseDescriptor instead')
 const GetSubscriptionsResponse$json = const {
   '1': 'GetSubscriptionsResponse',

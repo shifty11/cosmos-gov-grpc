@@ -1,22 +1,20 @@
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 package cosmosgov_grpc;
 
 option go_package = "go/vote_permission_service";
 
 service VotePermissionService {
-  rpc GetVotePermissions (GetVotePermissionsRequest) returns (GetVotePermissionsResponse) {}
+  rpc GetVotePermissions (google.protobuf.Empty) returns (GetVotePermissionsResponse) {}
   rpc RefreshVotePermission (RefreshVotePermissionRequest) returns (RefreshVotePermissionResponse) {}
 }
 
 message VotePermission {
   string address = 1;
   google.protobuf.Timestamp  expires_at = 2;
-}
-
-message GetVotePermissionsRequest {
 }
 
 message GetVotePermissionsResponse {

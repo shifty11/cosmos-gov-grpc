@@ -9,19 +9,19 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/timestamp.pb.dart' as $3;
+import 'google/protobuf/timestamp.pb.dart' as $4;
 
 class VotePermission extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VotePermission', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'address')
-    ..aOM<$3.Timestamp>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $3.Timestamp.create)
+    ..aOM<$4.Timestamp>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
   VotePermission._() : super();
   factory VotePermission({
     $core.String? address,
-    $3.Timestamp? expiresAt,
+    $4.Timestamp? expiresAt,
   }) {
     final _result = create();
     if (address != null) {
@@ -63,44 +63,15 @@ class VotePermission extends $pb.GeneratedMessage {
   void clearAddress() => clearField(1);
 
   @$pb.TagNumber(2)
-  $3.Timestamp get expiresAt => $_getN(1);
+  $4.Timestamp get expiresAt => $_getN(1);
   @$pb.TagNumber(2)
-  set expiresAt($3.Timestamp v) { setField(2, v); }
+  set expiresAt($4.Timestamp v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasExpiresAt() => $_has(1);
   @$pb.TagNumber(2)
   void clearExpiresAt() => clearField(2);
   @$pb.TagNumber(2)
-  $3.Timestamp ensureExpiresAt() => $_ensure(1);
-}
-
-class GetVotePermissionsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetVotePermissionsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  GetVotePermissionsRequest._() : super();
-  factory GetVotePermissionsRequest() => create();
-  factory GetVotePermissionsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetVotePermissionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetVotePermissionsRequest clone() => GetVotePermissionsRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetVotePermissionsRequest copyWith(void Function(GetVotePermissionsRequest) updates) => super.copyWith((message) => updates(message as GetVotePermissionsRequest)) as GetVotePermissionsRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GetVotePermissionsRequest create() => GetVotePermissionsRequest._();
-  GetVotePermissionsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetVotePermissionsRequest> createRepeated() => $pb.PbList<GetVotePermissionsRequest>();
-  @$core.pragma('dart2js:noInline')
-  static GetVotePermissionsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetVotePermissionsRequest>(create);
-  static GetVotePermissionsRequest? _defaultInstance;
+  $4.Timestamp ensureExpiresAt() => $_ensure(1);
 }
 
 class GetVotePermissionsResponse extends $pb.GeneratedMessage {

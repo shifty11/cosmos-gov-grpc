@@ -7,6 +7,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -18,7 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type VotePermissionServiceClient interface {
-	GetVotePermissions(ctx context.Context, in *GetVotePermissionsRequest, opts ...grpc.CallOption) (*GetVotePermissionsResponse, error)
+	GetVotePermissions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetVotePermissionsResponse, error)
 	RefreshVotePermission(ctx context.Context, in *RefreshVotePermissionRequest, opts ...grpc.CallOption) (*RefreshVotePermissionResponse, error)
 }
 
@@ -30,7 +31,7 @@ func NewVotePermissionServiceClient(cc grpc.ClientConnInterface) VotePermissionS
 	return &votePermissionServiceClient{cc}
 }
 
-func (c *votePermissionServiceClient) GetVotePermissions(ctx context.Context, in *GetVotePermissionsRequest, opts ...grpc.CallOption) (*GetVotePermissionsResponse, error) {
+func (c *votePermissionServiceClient) GetVotePermissions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetVotePermissionsResponse, error) {
 	out := new(GetVotePermissionsResponse)
 	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.VotePermissionService/GetVotePermissions", in, out, opts...)
 	if err != nil {
@@ -52,7 +53,7 @@ func (c *votePermissionServiceClient) RefreshVotePermission(ctx context.Context,
 // All implementations must embed UnimplementedVotePermissionServiceServer
 // for forward compatibility
 type VotePermissionServiceServer interface {
-	GetVotePermissions(context.Context, *GetVotePermissionsRequest) (*GetVotePermissionsResponse, error)
+	GetVotePermissions(context.Context, *emptypb.Empty) (*GetVotePermissionsResponse, error)
 	RefreshVotePermission(context.Context, *RefreshVotePermissionRequest) (*RefreshVotePermissionResponse, error)
 	mustEmbedUnimplementedVotePermissionServiceServer()
 }
@@ -61,7 +62,7 @@ type VotePermissionServiceServer interface {
 type UnimplementedVotePermissionServiceServer struct {
 }
 
-func (UnimplementedVotePermissionServiceServer) GetVotePermissions(context.Context, *GetVotePermissionsRequest) (*GetVotePermissionsResponse, error) {
+func (UnimplementedVotePermissionServiceServer) GetVotePermissions(context.Context, *emptypb.Empty) (*GetVotePermissionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVotePermissions not implemented")
 }
 func (UnimplementedVotePermissionServiceServer) RefreshVotePermission(context.Context, *RefreshVotePermissionRequest) (*RefreshVotePermissionResponse, error) {
@@ -81,7 +82,7 @@ func RegisterVotePermissionServiceServer(s grpc.ServiceRegistrar, srv VotePermis
 }
 
 func _VotePermissionService_GetVotePermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVotePermissionsRequest)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -93,7 +94,7 @@ func _VotePermissionService_GetVotePermissions_Handler(srv interface{}, ctx cont
 		FullMethod: "/cosmosgov_grpc.VotePermissionService/GetVotePermissions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VotePermissionServiceServer).GetVotePermissions(ctx, req.(*GetVotePermissionsRequest))
+		return srv.(VotePermissionServiceServer).GetVotePermissions(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -7,6 +7,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -18,7 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SubscriptionServiceClient interface {
-	GetSubscriptions(ctx context.Context, in *GetSubscriptionsRequest, opts ...grpc.CallOption) (*GetSubscriptionsResponse, error)
+	GetSubscriptions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSubscriptionsResponse, error)
 	ToggleSubscription(ctx context.Context, in *ToggleSubscriptionRequest, opts ...grpc.CallOption) (*ToggleSubscriptionResponse, error)
 }
 
@@ -30,9 +31,9 @@ func NewSubscriptionServiceClient(cc grpc.ClientConnInterface) SubscriptionServi
 	return &subscriptionServiceClient{cc}
 }
 
-func (c *subscriptionServiceClient) GetSubscriptions(ctx context.Context, in *GetSubscriptionsRequest, opts ...grpc.CallOption) (*GetSubscriptionsResponse, error) {
+func (c *subscriptionServiceClient) GetSubscriptions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSubscriptionsResponse, error) {
 	out := new(GetSubscriptionsResponse)
-	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.SubscriptionService/GetOrCreateSubscriptions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.SubscriptionService/GetSubscriptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +53,7 @@ func (c *subscriptionServiceClient) ToggleSubscription(ctx context.Context, in *
 // All implementations must embed UnimplementedSubscriptionServiceServer
 // for forward compatibility
 type SubscriptionServiceServer interface {
-	GetSubscriptions(context.Context, *GetSubscriptionsRequest) (*GetSubscriptionsResponse, error)
+	GetSubscriptions(context.Context, *emptypb.Empty) (*GetSubscriptionsResponse, error)
 	ToggleSubscription(context.Context, *ToggleSubscriptionRequest) (*ToggleSubscriptionResponse, error)
 	mustEmbedUnimplementedSubscriptionServiceServer()
 }
@@ -61,8 +62,8 @@ type SubscriptionServiceServer interface {
 type UnimplementedSubscriptionServiceServer struct {
 }
 
-func (UnimplementedSubscriptionServiceServer) GetSubscriptions(context.Context, *GetSubscriptionsRequest) (*GetSubscriptionsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrCreateSubscriptions not implemented")
+func (UnimplementedSubscriptionServiceServer) GetSubscriptions(context.Context, *emptypb.Empty) (*GetSubscriptionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSubscriptions not implemented")
 }
 func (UnimplementedSubscriptionServiceServer) ToggleSubscription(context.Context, *ToggleSubscriptionRequest) (*ToggleSubscriptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ToggleSubscription not implemented")
@@ -81,7 +82,7 @@ func RegisterSubscriptionServiceServer(s grpc.ServiceRegistrar, srv Subscription
 }
 
 func _SubscriptionService_GetSubscriptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSubscriptionsRequest)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -90,10 +91,10 @@ func _SubscriptionService_GetSubscriptions_Handler(srv interface{}, ctx context.
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cosmosgov_grpc.SubscriptionService/GetOrCreateSubscriptions",
+		FullMethod: "/cosmosgov_grpc.SubscriptionService/GetSubscriptions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SubscriptionServiceServer).GetSubscriptions(ctx, req.(*GetSubscriptionsRequest))
+		return srv.(SubscriptionServiceServer).GetSubscriptions(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -124,7 +125,7 @@ var SubscriptionService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*SubscriptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetOrCreateSubscriptions",
+			MethodName: "GetSubscriptions",
 			Handler:    _SubscriptionService_GetSubscriptions_Handler,
 		},
 		{

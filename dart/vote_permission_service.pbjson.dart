@@ -8,17 +8,39 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use createVotePermissionRequestDescriptor instead')
+const CreateVotePermissionRequest$json = const {
+  '1': 'CreateVotePermissionRequest',
+  '2': const [
+    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
+  ],
+};
+
+/// Descriptor for `CreateVotePermissionRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createVotePermissionRequestDescriptor = $convert.base64Decode('ChtDcmVhdGVWb3RlUGVybWlzc2lvblJlcXVlc3QSRgoOdm90ZVBlcm1pc3Npb24YASABKAsyHi5jb3Ntb3Nnb3ZfZ3JwYy5Wb3RlUGVybWlzc2lvblIOdm90ZVBlcm1pc3Npb24=');
+@$core.Deprecated('Use createVotePermissionResponseDescriptor instead')
+const CreateVotePermissionResponse$json = const {
+  '1': 'CreateVotePermissionResponse',
+  '2': const [
+    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
+  ],
+};
+
+/// Descriptor for `CreateVotePermissionResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createVotePermissionResponseDescriptor = $convert.base64Decode('ChxDcmVhdGVWb3RlUGVybWlzc2lvblJlc3BvbnNlEkYKDnZvdGVQZXJtaXNzaW9uGAEgASgLMh4uY29zbW9zZ292X2dycGMuVm90ZVBlcm1pc3Npb25SDnZvdGVQZXJtaXNzaW9u');
 @$core.Deprecated('Use votePermissionDescriptor instead')
 const VotePermission$json = const {
   '1': 'VotePermission',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
-    const {'1': 'expires_at', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiresAt'},
+    const {'1': 'chainName', '3': 1, '4': 1, '5': 9, '10': 'chainName'},
+    const {'1': 'granter', '3': 2, '4': 1, '5': 9, '10': 'granter'},
+    const {'1': 'grantee', '3': 3, '4': 1, '5': 9, '10': 'grantee'},
+    const {'1': 'expires_at', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiresAt'},
   ],
 };
 
 /// Descriptor for `VotePermission`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List votePermissionDescriptor = $convert.base64Decode('Cg5Wb3RlUGVybWlzc2lvbhIYCgdhZGRyZXNzGAEgASgJUgdhZGRyZXNzEjkKCmV4cGlyZXNfYXQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglleHBpcmVzQXQ=');
+final $typed_data.Uint8List votePermissionDescriptor = $convert.base64Decode('Cg5Wb3RlUGVybWlzc2lvbhIcCgljaGFpbk5hbWUYASABKAlSCWNoYWluTmFtZRIYCgdncmFudGVyGAIgASgJUgdncmFudGVyEhgKB2dyYW50ZWUYAyABKAlSB2dyYW50ZWUSOQoKZXhwaXJlc19hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWV4cGlyZXNBdA==');
 @$core.Deprecated('Use getVotePermissionsResponseDescriptor instead')
 const GetVotePermissionsResponse$json = const {
   '1': 'GetVotePermissionsResponse',

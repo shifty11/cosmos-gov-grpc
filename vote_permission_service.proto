@@ -8,13 +8,24 @@ package cosmosgov_grpc;
 option go_package = "go/vote_permission_service";
 
 service VotePermissionService {
+  rpc CreateVotePermission (CreateVotePermissionRequest) returns (CreateVotePermissionResponse) {}
   rpc GetVotePermissions (google.protobuf.Empty) returns (GetVotePermissionsResponse) {}
   rpc RefreshVotePermission (RefreshVotePermissionRequest) returns (RefreshVotePermissionResponse) {}
 }
 
+message CreateVotePermissionRequest {
+  VotePermission votePermission = 1;
+}
+
+message CreateVotePermissionResponse {
+  VotePermission votePermission = 1;
+}
+
 message VotePermission {
-  string address = 1;
-  google.protobuf.Timestamp  expires_at = 2;
+  string chainName = 1;
+  string granter = 2;
+  string grantee = 3;
+  google.protobuf.Timestamp  expires_at = 4;
 }
 
 message GetVotePermissionsResponse {

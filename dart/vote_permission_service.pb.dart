@@ -243,17 +243,17 @@ class GetVotePermissionsResponse extends $pb.GeneratedMessage {
 
 class RefreshVotePermissionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshVotePermissionRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'address')
+    ..aOM<VotePermission>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermission', protoName: 'votePermission', subBuilder: VotePermission.create)
     ..hasRequiredFields = false
   ;
 
   RefreshVotePermissionRequest._() : super();
   factory RefreshVotePermissionRequest({
-    $core.String? address,
+    VotePermission? votePermission,
   }) {
     final _result = create();
-    if (address != null) {
-      _result.address = address;
+    if (votePermission != null) {
+      _result.votePermission = votePermission;
     }
     return _result;
   }
@@ -279,28 +279,30 @@ class RefreshVotePermissionRequest extends $pb.GeneratedMessage {
   static RefreshVotePermissionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get address => $_getSZ(0);
+  VotePermission get votePermission => $_getN(0);
   @$pb.TagNumber(1)
-  set address($core.String v) { $_setString(0, v); }
+  set votePermission(VotePermission v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasAddress() => $_has(0);
+  $core.bool hasVotePermission() => $_has(0);
   @$pb.TagNumber(1)
-  void clearAddress() => clearField(1);
+  void clearVotePermission() => clearField(1);
+  @$pb.TagNumber(1)
+  VotePermission ensureVotePermission() => $_ensure(0);
 }
 
 class RefreshVotePermissionResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshVotePermissionResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
+    ..aOM<VotePermission>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermission', protoName: 'votePermission', subBuilder: VotePermission.create)
     ..hasRequiredFields = false
   ;
 
   RefreshVotePermissionResponse._() : super();
   factory RefreshVotePermissionResponse({
-    $core.bool? success,
+    VotePermission? votePermission,
   }) {
     final _result = create();
-    if (success != null) {
-      _result.success = success;
+    if (votePermission != null) {
+      _result.votePermission = votePermission;
     }
     return _result;
   }
@@ -326,12 +328,14 @@ class RefreshVotePermissionResponse extends $pb.GeneratedMessage {
   static RefreshVotePermissionResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get success => $_getBF(0);
+  VotePermission get votePermission => $_getN(0);
   @$pb.TagNumber(1)
-  set success($core.bool v) { $_setBool(0, v); }
+  set votePermission(VotePermission v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSuccess() => $_has(0);
+  $core.bool hasVotePermission() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearVotePermission() => clearField(1);
+  @$pb.TagNumber(1)
+  VotePermission ensureVotePermission() => $_ensure(0);
 }
 

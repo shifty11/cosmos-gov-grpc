@@ -55,19 +55,19 @@ final $typed_data.Uint8List getVotePermissionsResponseDescriptor = $convert.base
 const RefreshVotePermissionRequest$json = const {
   '1': 'RefreshVotePermissionRequest',
   '2': const [
-    const {'1': 'address', '3': 1, '4': 1, '5': 9, '10': 'address'},
+    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
   ],
 };
 
 /// Descriptor for `RefreshVotePermissionRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List refreshVotePermissionRequestDescriptor = $convert.base64Decode('ChxSZWZyZXNoVm90ZVBlcm1pc3Npb25SZXF1ZXN0EhgKB2FkZHJlc3MYASABKAlSB2FkZHJlc3M=');
+final $typed_data.Uint8List refreshVotePermissionRequestDescriptor = $convert.base64Decode('ChxSZWZyZXNoVm90ZVBlcm1pc3Npb25SZXF1ZXN0EkYKDnZvdGVQZXJtaXNzaW9uGAEgASgLMh4uY29zbW9zZ292X2dycGMuVm90ZVBlcm1pc3Npb25SDnZvdGVQZXJtaXNzaW9u');
 @$core.Deprecated('Use refreshVotePermissionResponseDescriptor instead')
 const RefreshVotePermissionResponse$json = const {
   '1': 'RefreshVotePermissionResponse',
   '2': const [
-    const {'1': 'success', '3': 1, '4': 1, '5': 8, '10': 'success'},
+    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
   ],
 };
 
 /// Descriptor for `RefreshVotePermissionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List refreshVotePermissionResponseDescriptor = $convert.base64Decode('Ch1SZWZyZXNoVm90ZVBlcm1pc3Npb25SZXNwb25zZRIYCgdzdWNjZXNzGAEgASgIUgdzdWNjZXNz');
+final $typed_data.Uint8List refreshVotePermissionResponseDescriptor = $convert.base64Decode('Ch1SZWZyZXNoVm90ZVBlcm1pc3Npb25SZXNwb25zZRJGCg52b3RlUGVybWlzc2lvbhgBIAEoCzIeLmNvc21vc2dvdl9ncnBjLlZvdGVQZXJtaXNzaW9uUg52b3RlUGVybWlzc2lvbg==');

@@ -25,7 +25,7 @@ message VotePermission {
   string chainName = 1;
   string granter = 2;
   string grantee = 3;
-  google.protobuf.Timestamp  expires_at = 4;
+  google.protobuf.Timestamp expires_at = 4;
 }
 
 message GetVotePermissionsResponse {
@@ -33,10 +33,10 @@ message GetVotePermissionsResponse {
 }
 
 message RefreshVotePermissionRequest {
-  string address = 1;
+  VotePermission votePermission = 1;
 }
 
 message RefreshVotePermissionResponse {
-  bool success = 1;
+  VotePermission votePermission = 1;
 }
 

@@ -18,6 +18,7 @@ class Chain extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayName', protoName: 'displayName')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rpcAddress', protoName: 'rpcAddress')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'denom')
     ..hasRequiredFields = false
   ;
 
@@ -28,6 +29,7 @@ class Chain extends $pb.GeneratedMessage {
     $core.String? displayName,
     $core.String? rpcAddress,
     $core.String? grantee,
+    $core.String? denom,
   }) {
     final _result = create();
     if (chainId != null) {
@@ -44,6 +46,9 @@ class Chain extends $pb.GeneratedMessage {
     }
     if (grantee != null) {
       _result.grantee = grantee;
+    }
+    if (denom != null) {
+      _result.denom = denom;
     }
     return _result;
   }
@@ -112,6 +117,15 @@ class Chain extends $pb.GeneratedMessage {
   $core.bool hasGrantee() => $_has(4);
   @$pb.TagNumber(5)
   void clearGrantee() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get denom => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set denom($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasDenom() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearDenom() => clearField(6);
 }
 
 class GetSupportedChainsResponse extends $pb.GeneratedMessage {

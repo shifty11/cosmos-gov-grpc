@@ -17,11 +17,12 @@ const Chain$json = const {
     const {'1': 'displayName', '3': 3, '4': 1, '5': 9, '10': 'displayName'},
     const {'1': 'rpcAddress', '3': 4, '4': 1, '5': 9, '10': 'rpcAddress'},
     const {'1': 'grantee', '3': 5, '4': 1, '5': 9, '10': 'grantee'},
+    const {'1': 'denom', '3': 6, '4': 1, '5': 9, '10': 'denom'},
   ],
 };
 
 /// Descriptor for `Chain`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIYCgdjaGFpbklkGAEgASgJUgdjaGFpbklkEhIKBG5hbWUYAiABKAlSBG5hbWUSIAoLZGlzcGxheU5hbWUYAyABKAlSC2Rpc3BsYXlOYW1lEh4KCnJwY0FkZHJlc3MYBCABKAlSCnJwY0FkZHJlc3MSGAoHZ3JhbnRlZRgFIAEoCVIHZ3JhbnRlZQ==');
+final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIYCgdjaGFpbklkGAEgASgJUgdjaGFpbklkEhIKBG5hbWUYAiABKAlSBG5hbWUSIAoLZGlzcGxheU5hbWUYAyABKAlSC2Rpc3BsYXlOYW1lEh4KCnJwY0FkZHJlc3MYBCABKAlSCnJwY0FkZHJlc3MSGAoHZ3JhbnRlZRgFIAEoCVIHZ3JhbnRlZRIUCgVkZW5vbRgGIAEoCVIFZGVub20=');
 @$core.Deprecated('Use getSupportedChainsResponseDescriptor instead')
 const GetSupportedChainsResponse$json = const {
   '1': 'GetSupportedChainsResponse',

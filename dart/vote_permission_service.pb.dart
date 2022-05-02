@@ -14,15 +14,17 @@ import 'google/protobuf/timestamp.pb.dart' as $4;
 class Chain extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Chain', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chainId', protoName: 'chainId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayName', protoName: 'displayName')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rpcAddress', protoName: 'rpcAddress')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayName', protoName: 'displayName')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rpcAddress', protoName: 'rpcAddress')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
     ..hasRequiredFields = false
   ;
 
   Chain._() : super();
   factory Chain({
     $core.String? chainId,
+    $core.String? name,
     $core.String? displayName,
     $core.String? rpcAddress,
     $core.String? grantee,
@@ -30,6 +32,9 @@ class Chain extends $pb.GeneratedMessage {
     final _result = create();
     if (chainId != null) {
       _result.chainId = chainId;
+    }
+    if (name != null) {
+      _result.name = name;
     }
     if (displayName != null) {
       _result.displayName = displayName;
@@ -73,31 +78,40 @@ class Chain extends $pb.GeneratedMessage {
   void clearChainId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get displayName => $_getSZ(1);
+  $core.String get name => $_getSZ(1);
   @$pb.TagNumber(2)
-  set displayName($core.String v) { $_setString(1, v); }
+  set name($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDisplayName() => $_has(1);
+  $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDisplayName() => clearField(2);
+  void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get rpcAddress => $_getSZ(2);
+  $core.String get displayName => $_getSZ(2);
   @$pb.TagNumber(3)
-  set rpcAddress($core.String v) { $_setString(2, v); }
+  set displayName($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasRpcAddress() => $_has(2);
+  $core.bool hasDisplayName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearRpcAddress() => clearField(3);
+  void clearDisplayName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get grantee => $_getSZ(3);
+  $core.String get rpcAddress => $_getSZ(3);
   @$pb.TagNumber(4)
-  set grantee($core.String v) { $_setString(3, v); }
+  set rpcAddress($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasGrantee() => $_has(3);
+  $core.bool hasRpcAddress() => $_has(3);
   @$pb.TagNumber(4)
-  void clearGrantee() => clearField(4);
+  void clearRpcAddress() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get grantee => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set grantee($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasGrantee() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearGrantee() => clearField(5);
 }
 
 class GetSupportedChainsResponse extends $pb.GeneratedMessage {
@@ -241,29 +255,24 @@ class CreateVotePermissionResponse extends $pb.GeneratedMessage {
 
 class VotePermission extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VotePermission', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chainName', protoName: 'chainName')
+    ..aOM<Chain>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chain', subBuilder: Chain.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'granter')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
-    ..aOM<$4.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $4.Timestamp.create)
+    ..aOM<$4.Timestamp>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $4.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
   VotePermission._() : super();
   factory VotePermission({
-    $core.String? chainName,
+    Chain? chain,
     $core.String? granter,
-    $core.String? grantee,
     $4.Timestamp? expiresAt,
   }) {
     final _result = create();
-    if (chainName != null) {
-      _result.chainName = chainName;
+    if (chain != null) {
+      _result.chain = chain;
     }
     if (granter != null) {
       _result.granter = granter;
-    }
-    if (grantee != null) {
-      _result.grantee = grantee;
     }
     if (expiresAt != null) {
       _result.expiresAt = expiresAt;
@@ -292,13 +301,15 @@ class VotePermission extends $pb.GeneratedMessage {
   static VotePermission? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get chainName => $_getSZ(0);
+  Chain get chain => $_getN(0);
   @$pb.TagNumber(1)
-  set chainName($core.String v) { $_setString(0, v); }
+  set chain(Chain v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasChainName() => $_has(0);
+  $core.bool hasChain() => $_has(0);
   @$pb.TagNumber(1)
-  void clearChainName() => clearField(1);
+  void clearChain() => clearField(1);
+  @$pb.TagNumber(1)
+  Chain ensureChain() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get granter => $_getSZ(1);
@@ -310,24 +321,15 @@ class VotePermission extends $pb.GeneratedMessage {
   void clearGranter() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get grantee => $_getSZ(2);
+  $4.Timestamp get expiresAt => $_getN(2);
   @$pb.TagNumber(3)
-  set grantee($core.String v) { $_setString(2, v); }
+  set expiresAt($4.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasGrantee() => $_has(2);
+  $core.bool hasExpiresAt() => $_has(2);
   @$pb.TagNumber(3)
-  void clearGrantee() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $4.Timestamp get expiresAt => $_getN(3);
-  @$pb.TagNumber(4)
-  set expiresAt($4.Timestamp v) { setField(4, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasExpiresAt() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearExpiresAt() => clearField(4);
-  @$pb.TagNumber(4)
-  $4.Timestamp ensureExpiresAt() => $_ensure(3);
+  void clearExpiresAt() => clearField(3);
+  @$pb.TagNumber(3)
+  $4.Timestamp ensureExpiresAt() => $_ensure(2);
 }
 
 class GetVotePermissionsResponse extends $pb.GeneratedMessage {

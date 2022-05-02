@@ -16,9 +16,10 @@ service VotePermissionService {
 
 message Chain {
   string chainId = 1;
-  string displayName = 2;
-  string rpcAddress = 3;
-  string grantee = 4;
+  string name = 2;
+  string displayName = 3;
+  string rpcAddress = 4;
+  string grantee = 5;
 }
 
 message GetSupportedChainsResponse {
@@ -34,10 +35,9 @@ message CreateVotePermissionResponse {
 }
 
 message VotePermission {
-  string chainName = 1;
+  Chain chain = 1;
   string granter = 2;
-  string grantee = 3;
-  google.protobuf.Timestamp expires_at = 4;
+  google.protobuf.Timestamp expires_at = 3;
 }
 
 message GetVotePermissionsResponse {

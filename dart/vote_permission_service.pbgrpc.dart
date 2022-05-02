@@ -10,11 +10,17 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'vote_permission_service.pb.dart' as $3;
 import 'google/protobuf/empty.pb.dart' as $1;
+import 'vote_permission_service.pb.dart' as $3;
 export 'vote_permission_service.pb.dart';
 
 class VotePermissionServiceClient extends $grpc.Client {
+  static final _$getSupportedChains =
+      $grpc.ClientMethod<$1.Empty, $3.GetSupportedChainsResponse>(
+          '/cosmosgov_grpc.VotePermissionService/GetSupportedChains',
+          ($1.Empty value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $3.GetSupportedChainsResponse.fromBuffer(value));
   static final _$createVotePermission = $grpc.ClientMethod<
           $3.CreateVotePermissionRequest, $3.CreateVotePermissionResponse>(
       '/cosmosgov_grpc.VotePermissionService/CreateVotePermission',
@@ -39,6 +45,12 @@ class VotePermissionServiceClient extends $grpc.Client {
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
+  $grpc.ResponseFuture<$3.GetSupportedChainsResponse> getSupportedChains(
+      $1.Empty request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getSupportedChains, request, options: options);
+  }
+
   $grpc.ResponseFuture<$3.CreateVotePermissionResponse> createVotePermission(
       $3.CreateVotePermissionRequest request,
       {$grpc.CallOptions? options}) {
@@ -62,6 +74,13 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
   $core.String get $name => 'cosmosgov_grpc.VotePermissionService';
 
   VotePermissionServiceBase() {
+    $addMethod($grpc.ServiceMethod<$1.Empty, $3.GetSupportedChainsResponse>(
+        'GetSupportedChains',
+        getSupportedChains_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.Empty.fromBuffer(value),
+        ($3.GetSupportedChainsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$3.CreateVotePermissionRequest,
             $3.CreateVotePermissionResponse>(
         'CreateVotePermission',
@@ -89,6 +108,11 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
         ($3.RefreshVotePermissionResponse value) => value.writeToBuffer()));
   }
 
+  $async.Future<$3.GetSupportedChainsResponse> getSupportedChains_Pre(
+      $grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
+    return getSupportedChains(call, await request);
+  }
+
   $async.Future<$3.CreateVotePermissionResponse> createVotePermission_Pre(
       $grpc.ServiceCall call,
       $async.Future<$3.CreateVotePermissionRequest> request) async {
@@ -106,6 +130,8 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
     return refreshVotePermission(call, await request);
   }
 
+  $async.Future<$3.GetSupportedChainsResponse> getSupportedChains(
+      $grpc.ServiceCall call, $1.Empty request);
   $async.Future<$3.CreateVotePermissionResponse> createVotePermission(
       $grpc.ServiceCall call, $3.CreateVotePermissionRequest request);
   $async.Future<$3.GetVotePermissionsResponse> getVotePermissions(

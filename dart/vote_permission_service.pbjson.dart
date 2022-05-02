@@ -8,6 +8,29 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use chainDescriptor instead')
+const Chain$json = const {
+  '1': 'Chain',
+  '2': const [
+    const {'1': 'chainId', '3': 1, '4': 1, '5': 9, '10': 'chainId'},
+    const {'1': 'displayName', '3': 2, '4': 1, '5': 9, '10': 'displayName'},
+    const {'1': 'rpcAddress', '3': 3, '4': 1, '5': 9, '10': 'rpcAddress'},
+    const {'1': 'grantee', '3': 4, '4': 1, '5': 9, '10': 'grantee'},
+  ],
+};
+
+/// Descriptor for `Chain`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIYCgdjaGFpbklkGAEgASgJUgdjaGFpbklkEiAKC2Rpc3BsYXlOYW1lGAIgASgJUgtkaXNwbGF5TmFtZRIeCgpycGNBZGRyZXNzGAMgASgJUgpycGNBZGRyZXNzEhgKB2dyYW50ZWUYBCABKAlSB2dyYW50ZWU=');
+@$core.Deprecated('Use getSupportedChainsResponseDescriptor instead')
+const GetSupportedChainsResponse$json = const {
+  '1': 'GetSupportedChainsResponse',
+  '2': const [
+    const {'1': 'chains', '3': 1, '4': 3, '5': 11, '6': '.cosmosgov_grpc.Chain', '10': 'chains'},
+  ],
+};
+
+/// Descriptor for `GetSupportedChainsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getSupportedChainsResponseDescriptor = $convert.base64Decode('ChpHZXRTdXBwb3J0ZWRDaGFpbnNSZXNwb25zZRItCgZjaGFpbnMYASADKAsyFS5jb3Ntb3Nnb3ZfZ3JwYy5DaGFpblIGY2hhaW5z');
 @$core.Deprecated('Use createVotePermissionRequestDescriptor instead')
 const CreateVotePermissionRequest$json = const {
   '1': 'CreateVotePermissionRequest',

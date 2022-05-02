@@ -19,6 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type VotePermissionServiceClient interface {
+	GetSupportedChains(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSupportedChainsResponse, error)
 	CreateVotePermission(ctx context.Context, in *CreateVotePermissionRequest, opts ...grpc.CallOption) (*CreateVotePermissionResponse, error)
 	GetVotePermissions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetVotePermissionsResponse, error)
 	RefreshVotePermission(ctx context.Context, in *RefreshVotePermissionRequest, opts ...grpc.CallOption) (*RefreshVotePermissionResponse, error)
@@ -30,6 +31,15 @@ type votePermissionServiceClient struct {
 
 func NewVotePermissionServiceClient(cc grpc.ClientConnInterface) VotePermissionServiceClient {
 	return &votePermissionServiceClient{cc}
+}
+
+func (c *votePermissionServiceClient) GetSupportedChains(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSupportedChainsResponse, error) {
+	out := new(GetSupportedChainsResponse)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.VotePermissionService/GetSupportedChains", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *votePermissionServiceClient) CreateVotePermission(ctx context.Context, in *CreateVotePermissionRequest, opts ...grpc.CallOption) (*CreateVotePermissionResponse, error) {
@@ -63,6 +73,7 @@ func (c *votePermissionServiceClient) RefreshVotePermission(ctx context.Context,
 // All implementations must embed UnimplementedVotePermissionServiceServer
 // for forward compatibility
 type VotePermissionServiceServer interface {
+	GetSupportedChains(context.Context, *emptypb.Empty) (*GetSupportedChainsResponse, error)
 	CreateVotePermission(context.Context, *CreateVotePermissionRequest) (*CreateVotePermissionResponse, error)
 	GetVotePermissions(context.Context, *emptypb.Empty) (*GetVotePermissionsResponse, error)
 	RefreshVotePermission(context.Context, *RefreshVotePermissionRequest) (*RefreshVotePermissionResponse, error)
@@ -73,6 +84,9 @@ type VotePermissionServiceServer interface {
 type UnimplementedVotePermissionServiceServer struct {
 }
 
+func (UnimplementedVotePermissionServiceServer) GetSupportedChains(context.Context, *emptypb.Empty) (*GetSupportedChainsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSupportedChains not implemented")
+}
 func (UnimplementedVotePermissionServiceServer) CreateVotePermission(context.Context, *CreateVotePermissionRequest) (*CreateVotePermissionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateVotePermission not implemented")
 }
@@ -93,6 +107,24 @@ type UnsafeVotePermissionServiceServer interface {
 
 func RegisterVotePermissionServiceServer(s grpc.ServiceRegistrar, srv VotePermissionServiceServer) {
 	s.RegisterService(&VotePermissionService_ServiceDesc, srv)
+}
+
+func _VotePermissionService_GetSupportedChains_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VotePermissionServiceServer).GetSupportedChains(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmosgov_grpc.VotePermissionService/GetSupportedChains",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VotePermissionServiceServer).GetSupportedChains(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _VotePermissionService_CreateVotePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -156,6 +188,10 @@ var VotePermissionService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "cosmosgov_grpc.VotePermissionService",
 	HandlerType: (*VotePermissionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetSupportedChains",
+			Handler:    _VotePermissionService_GetSupportedChains_Handler,
+		},
 		{
 			MethodName: "CreateVotePermission",
 			Handler:    _VotePermissionService_CreateVotePermission_Handler,

@@ -11,6 +11,136 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'google/protobuf/timestamp.pb.dart' as $4;
 
+class Chain extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Chain', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chainId', protoName: 'chainId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayName', protoName: 'displayName')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rpcAddress', protoName: 'rpcAddress')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
+    ..hasRequiredFields = false
+  ;
+
+  Chain._() : super();
+  factory Chain({
+    $core.String? chainId,
+    $core.String? displayName,
+    $core.String? rpcAddress,
+    $core.String? grantee,
+  }) {
+    final _result = create();
+    if (chainId != null) {
+      _result.chainId = chainId;
+    }
+    if (displayName != null) {
+      _result.displayName = displayName;
+    }
+    if (rpcAddress != null) {
+      _result.rpcAddress = rpcAddress;
+    }
+    if (grantee != null) {
+      _result.grantee = grantee;
+    }
+    return _result;
+  }
+  factory Chain.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Chain.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Chain clone() => Chain()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Chain copyWith(void Function(Chain) updates) => super.copyWith((message) => updates(message as Chain)) as Chain; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Chain create() => Chain._();
+  Chain createEmptyInstance() => create();
+  static $pb.PbList<Chain> createRepeated() => $pb.PbList<Chain>();
+  @$core.pragma('dart2js:noInline')
+  static Chain getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Chain>(create);
+  static Chain? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get chainId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set chainId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasChainId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChainId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get displayName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set displayName($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDisplayName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDisplayName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get rpcAddress => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set rpcAddress($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasRpcAddress() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearRpcAddress() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get grantee => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set grantee($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasGrantee() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearGrantee() => clearField(4);
+}
+
+class GetSupportedChainsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSupportedChainsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..pc<Chain>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chains', $pb.PbFieldType.PM, subBuilder: Chain.create)
+    ..hasRequiredFields = false
+  ;
+
+  GetSupportedChainsResponse._() : super();
+  factory GetSupportedChainsResponse({
+    $core.Iterable<Chain>? chains,
+  }) {
+    final _result = create();
+    if (chains != null) {
+      _result.chains.addAll(chains);
+    }
+    return _result;
+  }
+  factory GetSupportedChainsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetSupportedChainsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetSupportedChainsResponse clone() => GetSupportedChainsResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetSupportedChainsResponse copyWith(void Function(GetSupportedChainsResponse) updates) => super.copyWith((message) => updates(message as GetSupportedChainsResponse)) as GetSupportedChainsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetSupportedChainsResponse create() => GetSupportedChainsResponse._();
+  GetSupportedChainsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetSupportedChainsResponse> createRepeated() => $pb.PbList<GetSupportedChainsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetSupportedChainsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetSupportedChainsResponse>(create);
+  static GetSupportedChainsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<Chain> get chains => $_getList(0);
+}
+
 class CreateVotePermissionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateVotePermissionRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOM<VotePermission>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermission', protoName: 'votePermission', subBuilder: VotePermission.create)

@@ -8,6 +8,21 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use telegramLoginRequestDescriptor instead')
+const TelegramLoginRequest$json = const {
+  '1': 'TelegramLoginRequest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
+    const {'1': 'firstName', '3': 2, '4': 1, '5': 9, '10': 'firstName'},
+    const {'1': 'username', '3': 3, '4': 1, '5': 9, '10': 'username'},
+    const {'1': 'photoUrl', '3': 4, '4': 1, '5': 9, '10': 'photoUrl'},
+    const {'1': 'authDate', '3': 5, '4': 1, '5': 3, '10': 'authDate'},
+    const {'1': 'hash', '3': 6, '4': 1, '5': 9, '10': 'hash'},
+  ],
+};
+
+/// Descriptor for `TelegramLoginRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List telegramLoginRequestDescriptor = $convert.base64Decode('ChRUZWxlZ3JhbUxvZ2luUmVxdWVzdBIOCgJpZBgBIAEoA1ICaWQSHAoJZmlyc3ROYW1lGAIgASgJUglmaXJzdE5hbWUSGgoIdXNlcm5hbWUYAyABKAlSCHVzZXJuYW1lEhoKCHBob3RvVXJsGAQgASgJUghwaG90b1VybBIaCghhdXRoRGF0ZRgFIAEoA1IIYXV0aERhdGUSEgoEaGFzaBgGIAEoCVIEaGFzaA==');
 @$core.Deprecated('Use tokenLoginRequestDescriptor instead')
 const TokenLoginRequest$json = const {
   '1': 'TokenLoginRequest',
@@ -30,17 +45,17 @@ const TokenLoginRequest_Type$json = const {
 
 /// Descriptor for `TokenLoginRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List tokenLoginRequestDescriptor = $convert.base64Decode('ChFUb2tlbkxvZ2luUmVxdWVzdBIUCgV0b2tlbhgBIAEoCVIFdG9rZW4SFgoGY2hhdElkGAIgASgDUgZjaGF0SWQSOgoEVFlQRRgDIAEoDjImLmNvc21vc2dvdl9ncnBjLlRva2VuTG9naW5SZXF1ZXN0LlR5cGVSBFRZUEUiIQoEVHlwZRIMCghURUxFR1JBTRAAEgsKB0RJU0NPUkQQAQ==');
-@$core.Deprecated('Use tokenLoginResponseDescriptor instead')
-const TokenLoginResponse$json = const {
-  '1': 'TokenLoginResponse',
+@$core.Deprecated('Use loginResponseDescriptor instead')
+const LoginResponse$json = const {
+  '1': 'LoginResponse',
   '2': const [
     const {'1': 'access_token', '3': 1, '4': 1, '5': 9, '10': 'accessToken'},
     const {'1': 'refresh_token', '3': 2, '4': 1, '5': 9, '10': 'refreshToken'},
   ],
 };
 
-/// Descriptor for `TokenLoginResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List tokenLoginResponseDescriptor = $convert.base64Decode('ChJUb2tlbkxvZ2luUmVzcG9uc2USIQoMYWNjZXNzX3Rva2VuGAEgASgJUgthY2Nlc3NUb2tlbhIjCg1yZWZyZXNoX3Rva2VuGAIgASgJUgxyZWZyZXNoVG9rZW4=');
+/// Descriptor for `LoginResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List loginResponseDescriptor = $convert.base64Decode('Cg1Mb2dpblJlc3BvbnNlEiEKDGFjY2Vzc190b2tlbhgBIAEoCVILYWNjZXNzVG9rZW4SIwoNcmVmcmVzaF90b2tlbhgCIAEoCVIMcmVmcmVzaFRva2Vu');
 @$core.Deprecated('Use refreshAccessTokenRequestDescriptor instead')
 const RefreshAccessTokenRequest$json = const {
   '1': 'RefreshAccessTokenRequest',

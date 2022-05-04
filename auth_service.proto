@@ -4,8 +4,18 @@ package cosmosgov_grpc;
 option go_package = "go/auth_service";
 
 service AuthService {
-  rpc TokenLogin (TokenLoginRequest) returns (TokenLoginResponse) {}
+  rpc TelegramLogin (TelegramLoginRequest) returns (LoginResponse) {}
+  rpc TokenLogin (TokenLoginRequest) returns (LoginResponse) {}
   rpc RefreshAccessToken (RefreshAccessTokenRequest) returns (RefreshAccessTokenResponse) {}
+}
+
+message TelegramLoginRequest {
+  int64 id = 1;
+  string firstName = 2;
+  string username = 3;
+  string photoUrl = 4;
+  int64 authDate = 5;
+  string hash = 6;
 }
 
 message TokenLoginRequest {
@@ -18,7 +28,7 @@ message TokenLoginRequest {
   Type TYPE = 3;
 }
 
-message TokenLoginResponse {
+message LoginResponse {
   string access_token = 1;
   string refresh_token = 2;
 }

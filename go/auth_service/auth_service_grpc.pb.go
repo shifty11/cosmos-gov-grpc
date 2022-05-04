@@ -18,7 +18,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AuthServiceClient interface {
-	TokenLogin(ctx context.Context, in *TokenLoginRequest, opts ...grpc.CallOption) (*TokenLoginResponse, error)
+	TelegramLogin(ctx context.Context, in *TelegramLoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	TokenLogin(ctx context.Context, in *TokenLoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	RefreshAccessToken(ctx context.Context, in *RefreshAccessTokenRequest, opts ...grpc.CallOption) (*RefreshAccessTokenResponse, error)
 }
 
@@ -30,8 +31,17 @@ func NewAuthServiceClient(cc grpc.ClientConnInterface) AuthServiceClient {
 	return &authServiceClient{cc}
 }
 
-func (c *authServiceClient) TokenLogin(ctx context.Context, in *TokenLoginRequest, opts ...grpc.CallOption) (*TokenLoginResponse, error) {
-	out := new(TokenLoginResponse)
+func (c *authServiceClient) TelegramLogin(ctx context.Context, in *TelegramLoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
+	out := new(LoginResponse)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.AuthService/TelegramLogin", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) TokenLogin(ctx context.Context, in *TokenLoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
+	out := new(LoginResponse)
 	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.AuthService/TokenLogin", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -52,7 +62,8 @@ func (c *authServiceClient) RefreshAccessToken(ctx context.Context, in *RefreshA
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility
 type AuthServiceServer interface {
-	TokenLogin(context.Context, *TokenLoginRequest) (*TokenLoginResponse, error)
+	TelegramLogin(context.Context, *TelegramLoginRequest) (*LoginResponse, error)
+	TokenLogin(context.Context, *TokenLoginRequest) (*LoginResponse, error)
 	RefreshAccessToken(context.Context, *RefreshAccessTokenRequest) (*RefreshAccessTokenResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
@@ -61,7 +72,10 @@ type AuthServiceServer interface {
 type UnimplementedAuthServiceServer struct {
 }
 
-func (UnimplementedAuthServiceServer) TokenLogin(context.Context, *TokenLoginRequest) (*TokenLoginResponse, error) {
+func (UnimplementedAuthServiceServer) TelegramLogin(context.Context, *TelegramLoginRequest) (*LoginResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TelegramLogin not implemented")
+}
+func (UnimplementedAuthServiceServer) TokenLogin(context.Context, *TokenLoginRequest) (*LoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TokenLogin not implemented")
 }
 func (UnimplementedAuthServiceServer) RefreshAccessToken(context.Context, *RefreshAccessTokenRequest) (*RefreshAccessTokenResponse, error) {
@@ -78,6 +92,24 @@ type UnsafeAuthServiceServer interface {
 
 func RegisterAuthServiceServer(s grpc.ServiceRegistrar, srv AuthServiceServer) {
 	s.RegisterService(&AuthService_ServiceDesc, srv)
+}
+
+func _AuthService_TelegramLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TelegramLoginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).TelegramLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmosgov_grpc.AuthService/TelegramLogin",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).TelegramLogin(ctx, req.(*TelegramLoginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthService_TokenLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -123,6 +155,10 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "cosmosgov_grpc.AuthService",
 	HandlerType: (*AuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "TelegramLogin",
+			Handler:    _AuthService_TelegramLogin_Handler,
+		},
 		{
 			MethodName: "TokenLogin",
 			Handler:    _AuthService_TokenLogin_Handler,

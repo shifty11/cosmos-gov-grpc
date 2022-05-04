@@ -16,39 +16,24 @@ export 'auth_service.pbenum.dart';
 
 class TelegramLoginRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TelegramLoginRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'firstName', protoName: 'firstName')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'username')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'photoUrl', protoName: 'photoUrl')
-    ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authDate', protoName: 'authDate')
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hash')
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId', protoName: 'userId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dataStr', protoName: 'dataStr')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hash')
     ..hasRequiredFields = false
   ;
 
   TelegramLoginRequest._() : super();
   factory TelegramLoginRequest({
-    $fixnum.Int64? id,
-    $core.String? firstName,
-    $core.String? username,
-    $core.String? photoUrl,
-    $fixnum.Int64? authDate,
+    $fixnum.Int64? userId,
+    $core.String? dataStr,
     $core.String? hash,
   }) {
     final _result = create();
-    if (id != null) {
-      _result.id = id;
+    if (userId != null) {
+      _result.userId = userId;
     }
-    if (firstName != null) {
-      _result.firstName = firstName;
-    }
-    if (username != null) {
-      _result.username = username;
-    }
-    if (photoUrl != null) {
-      _result.photoUrl = photoUrl;
-    }
-    if (authDate != null) {
-      _result.authDate = authDate;
+    if (dataStr != null) {
+      _result.dataStr = dataStr;
     }
     if (hash != null) {
       _result.hash = hash;
@@ -77,58 +62,31 @@ class TelegramLoginRequest extends $pb.GeneratedMessage {
   static TelegramLoginRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get id => $_getI64(0);
+  $fixnum.Int64 get userId => $_getI64(0);
   @$pb.TagNumber(1)
-  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  set userId($fixnum.Int64 v) { $_setInt64(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearUserId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get firstName => $_getSZ(1);
+  $core.String get dataStr => $_getSZ(1);
   @$pb.TagNumber(2)
-  set firstName($core.String v) { $_setString(1, v); }
+  set dataStr($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasFirstName() => $_has(1);
+  $core.bool hasDataStr() => $_has(1);
   @$pb.TagNumber(2)
-  void clearFirstName() => clearField(2);
+  void clearDataStr() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get username => $_getSZ(2);
+  $core.String get hash => $_getSZ(2);
   @$pb.TagNumber(3)
-  set username($core.String v) { $_setString(2, v); }
+  set hash($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasUsername() => $_has(2);
+  $core.bool hasHash() => $_has(2);
   @$pb.TagNumber(3)
-  void clearUsername() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get photoUrl => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set photoUrl($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasPhotoUrl() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearPhotoUrl() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $fixnum.Int64 get authDate => $_getI64(4);
-  @$pb.TagNumber(5)
-  set authDate($fixnum.Int64 v) { $_setInt64(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasAuthDate() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearAuthDate() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get hash => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set hash($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasHash() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearHash() => clearField(6);
+  void clearHash() => clearField(3);
 }
 
 class TokenLoginRequest extends $pb.GeneratedMessage {

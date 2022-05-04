@@ -19,6 +19,8 @@ class TelegramLoginRequest extends $pb.GeneratedMessage {
     ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId', protoName: 'userId')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dataStr', protoName: 'dataStr')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hash')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'username')
+    ..aInt64(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authDate', protoName: 'authDate')
     ..hasRequiredFields = false
   ;
 
@@ -27,6 +29,8 @@ class TelegramLoginRequest extends $pb.GeneratedMessage {
     $fixnum.Int64? userId,
     $core.String? dataStr,
     $core.String? hash,
+    $core.String? username,
+    $fixnum.Int64? authDate,
   }) {
     final _result = create();
     if (userId != null) {
@@ -37,6 +41,12 @@ class TelegramLoginRequest extends $pb.GeneratedMessage {
     }
     if (hash != null) {
       _result.hash = hash;
+    }
+    if (username != null) {
+      _result.username = username;
+    }
+    if (authDate != null) {
+      _result.authDate = authDate;
     }
     return _result;
   }
@@ -87,6 +97,24 @@ class TelegramLoginRequest extends $pb.GeneratedMessage {
   $core.bool hasHash() => $_has(2);
   @$pb.TagNumber(3)
   void clearHash() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get username => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set username($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasUsername() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearUsername() => clearField(4);
+
+  @$pb.TagNumber(6)
+  $fixnum.Int64 get authDate => $_getI64(4);
+  @$pb.TagNumber(6)
+  set authDate($fixnum.Int64 v) { $_setInt64(4, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasAuthDate() => $_has(4);
+  @$pb.TagNumber(6)
+  void clearAuthDate() => clearField(6);
 }
 
 class TokenLoginRequest extends $pb.GeneratedMessage {

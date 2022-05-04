@@ -14,12 +14,14 @@ const TelegramLoginRequest$json = const {
   '2': const [
     const {'1': 'userId', '3': 1, '4': 1, '5': 3, '10': 'userId'},
     const {'1': 'dataStr', '3': 2, '4': 1, '5': 9, '10': 'dataStr'},
+    const {'1': 'username', '3': 4, '4': 1, '5': 9, '10': 'username'},
+    const {'1': 'authDate', '3': 6, '4': 1, '5': 3, '10': 'authDate'},
     const {'1': 'hash', '3': 3, '4': 1, '5': 9, '10': 'hash'},
   ],
 };
 
 /// Descriptor for `TelegramLoginRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List telegramLoginRequestDescriptor = $convert.base64Decode('ChRUZWxlZ3JhbUxvZ2luUmVxdWVzdBIWCgZ1c2VySWQYASABKANSBnVzZXJJZBIYCgdkYXRhU3RyGAIgASgJUgdkYXRhU3RyEhIKBGhhc2gYAyABKAlSBGhhc2g=');
+final $typed_data.Uint8List telegramLoginRequestDescriptor = $convert.base64Decode('ChRUZWxlZ3JhbUxvZ2luUmVxdWVzdBIWCgZ1c2VySWQYASABKANSBnVzZXJJZBIYCgdkYXRhU3RyGAIgASgJUgdkYXRhU3RyEhoKCHVzZXJuYW1lGAQgASgJUgh1c2VybmFtZRIaCghhdXRoRGF0ZRgGIAEoA1IIYXV0aERhdGUSEgoEaGFzaBgDIAEoCVIEaGFzaA==');
 @$core.Deprecated('Use tokenLoginRequestDescriptor instead')
 const TokenLoginRequest$json = const {
   '1': 'TokenLoginRequest',

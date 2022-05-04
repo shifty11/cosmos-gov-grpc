@@ -12,11 +12,8 @@ service AuthService {
 message TelegramLoginRequest {
   int64 userId = 1;
   string dataStr = 2;
-//  string firstName = 2;
-//  string lastName = 3;
-//  string username = 4;
-//  string photoUrl = 5;
-//  int64 authDate = 6;
+  string username = 4;
+  int64 authDate = 6;
   string hash = 3;
 }
 

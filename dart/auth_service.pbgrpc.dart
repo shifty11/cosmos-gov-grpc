@@ -10,46 +10,46 @@ import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:grpc/service_api.dart' as $grpc;
-import 'auth_service.pb.dart' as $0;
+import 'auth_service.pb.dart' as $2;
 export 'auth_service.pb.dart';
 
 class AuthServiceClient extends $grpc.Client {
   static final _$telegramLogin =
-      $grpc.ClientMethod<$0.TelegramLoginRequest, $0.LoginResponse>(
+      $grpc.ClientMethod<$2.TelegramLoginRequest, $2.LoginResponse>(
           '/cosmosgov_grpc.AuthService/TelegramLogin',
-          ($0.TelegramLoginRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.LoginResponse.fromBuffer(value));
+          ($2.TelegramLoginRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $2.LoginResponse.fromBuffer(value));
   static final _$tokenLogin =
-      $grpc.ClientMethod<$0.TokenLoginRequest, $0.LoginResponse>(
+      $grpc.ClientMethod<$2.TokenLoginRequest, $2.LoginResponse>(
           '/cosmosgov_grpc.AuthService/TokenLogin',
-          ($0.TokenLoginRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.LoginResponse.fromBuffer(value));
+          ($2.TokenLoginRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $2.LoginResponse.fromBuffer(value));
   static final _$refreshAccessToken = $grpc.ClientMethod<
-          $0.RefreshAccessTokenRequest, $0.RefreshAccessTokenResponse>(
+          $2.RefreshAccessTokenRequest, $2.RefreshAccessTokenResponse>(
       '/cosmosgov_grpc.AuthService/RefreshAccessToken',
-      ($0.RefreshAccessTokenRequest value) => value.writeToBuffer(),
+      ($2.RefreshAccessTokenRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
-          $0.RefreshAccessTokenResponse.fromBuffer(value));
+          $2.RefreshAccessTokenResponse.fromBuffer(value));
 
   AuthServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.LoginResponse> telegramLogin(
-      $0.TelegramLoginRequest request,
+  $grpc.ResponseFuture<$2.LoginResponse> telegramLogin(
+      $2.TelegramLoginRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$telegramLogin, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.LoginResponse> tokenLogin(
-      $0.TokenLoginRequest request,
+  $grpc.ResponseFuture<$2.LoginResponse> tokenLogin(
+      $2.TokenLoginRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$tokenLogin, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.RefreshAccessTokenResponse> refreshAccessToken(
-      $0.RefreshAccessTokenRequest request,
+  $grpc.ResponseFuture<$2.RefreshAccessTokenResponse> refreshAccessToken(
+      $2.RefreshAccessTokenRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$refreshAccessToken, request, options: options);
   }
@@ -59,52 +59,52 @@ abstract class AuthServiceBase extends $grpc.Service {
   $core.String get $name => 'cosmosgov_grpc.AuthService';
 
   AuthServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.TelegramLoginRequest, $0.LoginResponse>(
+    $addMethod($grpc.ServiceMethod<$2.TelegramLoginRequest, $2.LoginResponse>(
         'TelegramLogin',
         telegramLogin_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $0.TelegramLoginRequest.fromBuffer(value),
-        ($0.LoginResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.TokenLoginRequest, $0.LoginResponse>(
+            $2.TelegramLoginRequest.fromBuffer(value),
+        ($2.LoginResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.TokenLoginRequest, $2.LoginResponse>(
         'TokenLogin',
         tokenLogin_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.TokenLoginRequest.fromBuffer(value),
-        ($0.LoginResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.RefreshAccessTokenRequest,
-            $0.RefreshAccessTokenResponse>(
+        ($core.List<$core.int> value) => $2.TokenLoginRequest.fromBuffer(value),
+        ($2.LoginResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.RefreshAccessTokenRequest,
+            $2.RefreshAccessTokenResponse>(
         'RefreshAccessToken',
         refreshAccessToken_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $0.RefreshAccessTokenRequest.fromBuffer(value),
-        ($0.RefreshAccessTokenResponse value) => value.writeToBuffer()));
+            $2.RefreshAccessTokenRequest.fromBuffer(value),
+        ($2.RefreshAccessTokenResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.LoginResponse> telegramLogin_Pre($grpc.ServiceCall call,
-      $async.Future<$0.TelegramLoginRequest> request) async {
+  $async.Future<$2.LoginResponse> telegramLogin_Pre($grpc.ServiceCall call,
+      $async.Future<$2.TelegramLoginRequest> request) async {
     return telegramLogin(call, await request);
   }
 
-  $async.Future<$0.LoginResponse> tokenLogin_Pre($grpc.ServiceCall call,
-      $async.Future<$0.TokenLoginRequest> request) async {
+  $async.Future<$2.LoginResponse> tokenLogin_Pre($grpc.ServiceCall call,
+      $async.Future<$2.TokenLoginRequest> request) async {
     return tokenLogin(call, await request);
   }
 
-  $async.Future<$0.RefreshAccessTokenResponse> refreshAccessToken_Pre(
+  $async.Future<$2.RefreshAccessTokenResponse> refreshAccessToken_Pre(
       $grpc.ServiceCall call,
-      $async.Future<$0.RefreshAccessTokenRequest> request) async {
+      $async.Future<$2.RefreshAccessTokenRequest> request) async {
     return refreshAccessToken(call, await request);
   }
 
-  $async.Future<$0.LoginResponse> telegramLogin(
-      $grpc.ServiceCall call, $0.TelegramLoginRequest request);
-  $async.Future<$0.LoginResponse> tokenLogin(
-      $grpc.ServiceCall call, $0.TokenLoginRequest request);
-  $async.Future<$0.RefreshAccessTokenResponse> refreshAccessToken(
-      $grpc.ServiceCall call, $0.RefreshAccessTokenRequest request);
+  $async.Future<$2.LoginResponse> telegramLogin(
+      $grpc.ServiceCall call, $2.TelegramLoginRequest request);
+  $async.Future<$2.LoginResponse> tokenLogin(
+      $grpc.ServiceCall call, $2.TokenLoginRequest request);
+  $async.Future<$2.RefreshAccessTokenResponse> refreshAccessToken(
+      $grpc.ServiceCall call, $2.RefreshAccessTokenRequest request);
 }

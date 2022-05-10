@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package cosmosgov_grpc;
+
+option go_package = "go/admin_service";
+
+service AdminService {
+  rpc GetChains (google.protobuf.Empty) returns (GetChainsResponse) {}
+  rpc SetChainEnabled (SetChainEnabledRequest) returns (SetChainEnabledResponse) {}
+}
+
+message ChainSettings {
+  string chainId = 1;
+  string name = 2;
+  string displayName = 3;
+  bool isEnabled = 4;
+  bool isVotingEnabled = 5;
+  bool isFeegrantUsed = 6;
+}
+
+message GetChainsResponse {
+  repeated ChainSettings chains = 1;
+}
+
+message SetChainEnabledRequest {
+  string chainId = 1;
+}
+
+message SetChainEnabledResponse {
+  bool isEnabled = 1;
+}

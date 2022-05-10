@@ -9,7 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/timestamp.pb.dart' as $4;
+import 'google/protobuf/timestamp.pb.dart' as $5;
 
 class Chain extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Chain', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
@@ -285,7 +285,7 @@ class VotePermission extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VotePermission', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOM<Chain>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chain', subBuilder: Chain.create)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'granter')
-    ..aOM<$4.Timestamp>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $4.Timestamp.create)
+    ..aOM<$5.Timestamp>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -293,7 +293,7 @@ class VotePermission extends $pb.GeneratedMessage {
   factory VotePermission({
     Chain? chain,
     $core.String? granter,
-    $4.Timestamp? expiresAt,
+    $5.Timestamp? expiresAt,
   }) {
     final _result = create();
     if (chain != null) {
@@ -349,15 +349,15 @@ class VotePermission extends $pb.GeneratedMessage {
   void clearGranter() => clearField(2);
 
   @$pb.TagNumber(3)
-  $4.Timestamp get expiresAt => $_getN(2);
+  $5.Timestamp get expiresAt => $_getN(2);
   @$pb.TagNumber(3)
-  set expiresAt($4.Timestamp v) { setField(3, v); }
+  set expiresAt($5.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasExpiresAt() => $_has(2);
   @$pb.TagNumber(3)
   void clearExpiresAt() => clearField(3);
   @$pb.TagNumber(3)
-  $4.Timestamp ensureExpiresAt() => $_ensure(2);
+  $5.Timestamp ensureExpiresAt() => $_ensure(2);
 }
 
 class GetVotePermissionsResponse extends $pb.GeneratedMessage {

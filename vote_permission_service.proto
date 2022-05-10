@@ -21,6 +21,7 @@ message Chain {
   string rpcAddress = 4;
   string grantee = 5;
   string denom = 6;
+  string accountPrefix = 7;
 }
 
 message GetSupportedChainsResponse {

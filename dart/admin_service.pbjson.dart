@@ -33,23 +33,26 @@ const GetChainsResponse$json = const {
 
 /// Descriptor for `GetChainsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getChainsResponseDescriptor = $convert.base64Decode('ChFHZXRDaGFpbnNSZXNwb25zZRI1CgZjaGFpbnMYASADKAsyHS5jb3Ntb3Nnb3ZfZ3JwYy5DaGFpblNldHRpbmdzUgZjaGFpbnM=');
-@$core.Deprecated('Use setChainEnabledRequestDescriptor instead')
-const SetChainEnabledRequest$json = const {
-  '1': 'SetChainEnabledRequest',
+@$core.Deprecated('Use updateChainRequestDescriptor instead')
+const UpdateChainRequest$json = const {
+  '1': 'UpdateChainRequest',
   '2': const [
-    const {'1': 'chainId', '3': 1, '4': 1, '5': 9, '10': 'chainId'},
+    const {'1': 'chainName', '3': 1, '4': 1, '5': 9, '10': 'chainName'},
+    const {'1': 'isEnabled', '3': 2, '4': 1, '5': 8, '10': 'isEnabled'},
+    const {'1': 'isVotingEnabled', '3': 3, '4': 1, '5': 8, '10': 'isVotingEnabled'},
+    const {'1': 'isFeegrantUsed', '3': 4, '4': 1, '5': 8, '10': 'isFeegrantUsed'},
   ],
 };
 
-/// Descriptor for `SetChainEnabledRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List setChainEnabledRequestDescriptor = $convert.base64Decode('ChZTZXRDaGFpbkVuYWJsZWRSZXF1ZXN0EhgKB2NoYWluSWQYASABKAlSB2NoYWluSWQ=');
-@$core.Deprecated('Use setChainEnabledResponseDescriptor instead')
-const SetChainEnabledResponse$json = const {
-  '1': 'SetChainEnabledResponse',
+/// Descriptor for `UpdateChainRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateChainRequestDescriptor = $convert.base64Decode('ChJVcGRhdGVDaGFpblJlcXVlc3QSHAoJY2hhaW5OYW1lGAEgASgJUgljaGFpbk5hbWUSHAoJaXNFbmFibGVkGAIgASgIUglpc0VuYWJsZWQSKAoPaXNWb3RpbmdFbmFibGVkGAMgASgIUg9pc1ZvdGluZ0VuYWJsZWQSJgoOaXNGZWVncmFudFVzZWQYBCABKAhSDmlzRmVlZ3JhbnRVc2Vk');
+@$core.Deprecated('Use updateChainResponseDescriptor instead')
+const UpdateChainResponse$json = const {
+  '1': 'UpdateChainResponse',
   '2': const [
-    const {'1': 'isEnabled', '3': 1, '4': 1, '5': 8, '10': 'isEnabled'},
+    const {'1': 'chain', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.ChainSettings', '10': 'chain'},
   ],
 };
 
-/// Descriptor for `SetChainEnabledResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List setChainEnabledResponseDescriptor = $convert.base64Decode('ChdTZXRDaGFpbkVuYWJsZWRSZXNwb25zZRIcCglpc0VuYWJsZWQYASABKAhSCWlzRW5hYmxlZA==');
+/// Descriptor for `UpdateChainResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateChainResponseDescriptor = $convert.base64Decode('ChNVcGRhdGVDaGFpblJlc3BvbnNlEjMKBWNoYWluGAEgASgLMh0uY29zbW9zZ292X2dycGMuQ2hhaW5TZXR0aW5nc1IFY2hhaW4=');

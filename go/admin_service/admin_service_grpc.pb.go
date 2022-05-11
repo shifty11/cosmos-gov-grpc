@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AdminServiceClient interface {
 	GetChains(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetChainsResponse, error)
-	SetChainEnabled(ctx context.Context, in *SetChainEnabledRequest, opts ...grpc.CallOption) (*SetChainEnabledResponse, error)
+	UpdateChain(ctx context.Context, in *UpdateChainRequest, opts ...grpc.CallOption) (*UpdateChainResponse, error)
 }
 
 type adminServiceClient struct {
@@ -40,9 +40,9 @@ func (c *adminServiceClient) GetChains(ctx context.Context, in *emptypb.Empty, o
 	return out, nil
 }
 
-func (c *adminServiceClient) SetChainEnabled(ctx context.Context, in *SetChainEnabledRequest, opts ...grpc.CallOption) (*SetChainEnabledResponse, error) {
-	out := new(SetChainEnabledResponse)
-	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.AdminService/SetChainEnabled", in, out, opts...)
+func (c *adminServiceClient) UpdateChain(ctx context.Context, in *UpdateChainRequest, opts ...grpc.CallOption) (*UpdateChainResponse, error) {
+	out := new(UpdateChainResponse)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.AdminService/UpdateChain", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func (c *adminServiceClient) SetChainEnabled(ctx context.Context, in *SetChainEn
 // for forward compatibility
 type AdminServiceServer interface {
 	GetChains(context.Context, *emptypb.Empty) (*GetChainsResponse, error)
-	SetChainEnabled(context.Context, *SetChainEnabledRequest) (*SetChainEnabledResponse, error)
+	UpdateChain(context.Context, *UpdateChainRequest) (*UpdateChainResponse, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -65,8 +65,8 @@ type UnimplementedAdminServiceServer struct {
 func (UnimplementedAdminServiceServer) GetChains(context.Context, *emptypb.Empty) (*GetChainsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetChains not implemented")
 }
-func (UnimplementedAdminServiceServer) SetChainEnabled(context.Context, *SetChainEnabledRequest) (*SetChainEnabledResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SetChainEnabled not implemented")
+func (UnimplementedAdminServiceServer) UpdateChain(context.Context, *UpdateChainRequest) (*UpdateChainResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateChain not implemented")
 }
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
 
@@ -99,20 +99,20 @@ func _AdminService_GetChains_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_SetChainEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetChainEnabledRequest)
+func _AdminService_UpdateChain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateChainRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).SetChainEnabled(ctx, in)
+		return srv.(AdminServiceServer).UpdateChain(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cosmosgov_grpc.AdminService/SetChainEnabled",
+		FullMethod: "/cosmosgov_grpc.AdminService/UpdateChain",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).SetChainEnabled(ctx, req.(*SetChainEnabledRequest))
+		return srv.(AdminServiceServer).UpdateChain(ctx, req.(*UpdateChainRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -129,8 +129,8 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AdminService_GetChains_Handler,
 		},
 		{
-			MethodName: "SetChainEnabled",
-			Handler:    _AdminService_SetChainEnabled_Handler,
+			MethodName: "UpdateChain",
+			Handler:    _AdminService_UpdateChain_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

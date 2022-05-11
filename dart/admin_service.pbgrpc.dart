@@ -19,12 +19,12 @@ class AdminServiceClient extends $grpc.Client {
       '/cosmosgov_grpc.AdminService/GetChains',
       ($0.Empty value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.GetChainsResponse.fromBuffer(value));
-  static final _$setChainEnabled =
-      $grpc.ClientMethod<$1.SetChainEnabledRequest, $1.SetChainEnabledResponse>(
-          '/cosmosgov_grpc.AdminService/SetChainEnabled',
-          ($1.SetChainEnabledRequest value) => value.writeToBuffer(),
+  static final _$updateChain =
+      $grpc.ClientMethod<$1.UpdateChainRequest, $1.UpdateChainResponse>(
+          '/cosmosgov_grpc.AdminService/UpdateChain',
+          ($1.UpdateChainRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $1.SetChainEnabledResponse.fromBuffer(value));
+              $1.UpdateChainResponse.fromBuffer(value));
 
   AdminServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -36,10 +36,10 @@ class AdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getChains, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.SetChainEnabledResponse> setChainEnabled(
-      $1.SetChainEnabledRequest request,
+  $grpc.ResponseFuture<$1.UpdateChainResponse> updateChain(
+      $1.UpdateChainRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$setChainEnabled, request, options: options);
+    return $createUnaryCall(_$updateChain, request, options: options);
   }
 }
 
@@ -54,15 +54,15 @@ abstract class AdminServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($1.GetChainsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.SetChainEnabledRequest,
-            $1.SetChainEnabledResponse>(
-        'SetChainEnabled',
-        setChainEnabled_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) =>
-            $1.SetChainEnabledRequest.fromBuffer(value),
-        ($1.SetChainEnabledResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$1.UpdateChainRequest, $1.UpdateChainResponse>(
+            'UpdateChain',
+            updateChain_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $1.UpdateChainRequest.fromBuffer(value),
+            ($1.UpdateChainResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.GetChainsResponse> getChains_Pre(
@@ -70,14 +70,13 @@ abstract class AdminServiceBase extends $grpc.Service {
     return getChains(call, await request);
   }
 
-  $async.Future<$1.SetChainEnabledResponse> setChainEnabled_Pre(
-      $grpc.ServiceCall call,
-      $async.Future<$1.SetChainEnabledRequest> request) async {
-    return setChainEnabled(call, await request);
+  $async.Future<$1.UpdateChainResponse> updateChain_Pre($grpc.ServiceCall call,
+      $async.Future<$1.UpdateChainRequest> request) async {
+    return updateChain(call, await request);
   }
 
   $async.Future<$1.GetChainsResponse> getChains(
       $grpc.ServiceCall call, $0.Empty request);
-  $async.Future<$1.SetChainEnabledResponse> setChainEnabled(
-      $grpc.ServiceCall call, $1.SetChainEnabledRequest request);
+  $async.Future<$1.UpdateChainResponse> updateChain(
+      $grpc.ServiceCall call, $1.UpdateChainRequest request);
 }

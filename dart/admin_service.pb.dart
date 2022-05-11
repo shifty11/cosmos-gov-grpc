@@ -167,97 +167,141 @@ class GetChainsResponse extends $pb.GeneratedMessage {
   $core.List<ChainSettings> get chains => $_getList(0);
 }
 
-class SetChainEnabledRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SetChainEnabledRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chainId', protoName: 'chainId')
+class UpdateChainRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateChainRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chainName', protoName: 'chainName')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isEnabled', protoName: 'isEnabled')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isVotingEnabled', protoName: 'isVotingEnabled')
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isFeegrantUsed', protoName: 'isFeegrantUsed')
     ..hasRequiredFields = false
   ;
 
-  SetChainEnabledRequest._() : super();
-  factory SetChainEnabledRequest({
-    $core.String? chainId,
-  }) {
-    final _result = create();
-    if (chainId != null) {
-      _result.chainId = chainId;
-    }
-    return _result;
-  }
-  factory SetChainEnabledRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory SetChainEnabledRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  SetChainEnabledRequest clone() => SetChainEnabledRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  SetChainEnabledRequest copyWith(void Function(SetChainEnabledRequest) updates) => super.copyWith((message) => updates(message as SetChainEnabledRequest)) as SetChainEnabledRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static SetChainEnabledRequest create() => SetChainEnabledRequest._();
-  SetChainEnabledRequest createEmptyInstance() => create();
-  static $pb.PbList<SetChainEnabledRequest> createRepeated() => $pb.PbList<SetChainEnabledRequest>();
-  @$core.pragma('dart2js:noInline')
-  static SetChainEnabledRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetChainEnabledRequest>(create);
-  static SetChainEnabledRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get chainId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set chainId($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasChainId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearChainId() => clearField(1);
-}
-
-class SetChainEnabledResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SetChainEnabledResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isEnabled', protoName: 'isEnabled')
-    ..hasRequiredFields = false
-  ;
-
-  SetChainEnabledResponse._() : super();
-  factory SetChainEnabledResponse({
+  UpdateChainRequest._() : super();
+  factory UpdateChainRequest({
+    $core.String? chainName,
     $core.bool? isEnabled,
+    $core.bool? isVotingEnabled,
+    $core.bool? isFeegrantUsed,
   }) {
     final _result = create();
+    if (chainName != null) {
+      _result.chainName = chainName;
+    }
     if (isEnabled != null) {
       _result.isEnabled = isEnabled;
     }
+    if (isVotingEnabled != null) {
+      _result.isVotingEnabled = isVotingEnabled;
+    }
+    if (isFeegrantUsed != null) {
+      _result.isFeegrantUsed = isFeegrantUsed;
+    }
     return _result;
   }
-  factory SetChainEnabledResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory SetChainEnabledResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory UpdateChainRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateChainRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  SetChainEnabledResponse clone() => SetChainEnabledResponse()..mergeFromMessage(this);
+  UpdateChainRequest clone() => UpdateChainRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SetChainEnabledResponse copyWith(void Function(SetChainEnabledResponse) updates) => super.copyWith((message) => updates(message as SetChainEnabledResponse)) as SetChainEnabledResponse; // ignore: deprecated_member_use
+  UpdateChainRequest copyWith(void Function(UpdateChainRequest) updates) => super.copyWith((message) => updates(message as UpdateChainRequest)) as UpdateChainRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static SetChainEnabledResponse create() => SetChainEnabledResponse._();
-  SetChainEnabledResponse createEmptyInstance() => create();
-  static $pb.PbList<SetChainEnabledResponse> createRepeated() => $pb.PbList<SetChainEnabledResponse>();
+  static UpdateChainRequest create() => UpdateChainRequest._();
+  UpdateChainRequest createEmptyInstance() => create();
+  static $pb.PbList<UpdateChainRequest> createRepeated() => $pb.PbList<UpdateChainRequest>();
   @$core.pragma('dart2js:noInline')
-  static SetChainEnabledResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SetChainEnabledResponse>(create);
-  static SetChainEnabledResponse? _defaultInstance;
+  static UpdateChainRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateChainRequest>(create);
+  static UpdateChainRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get isEnabled => $_getBF(0);
+  $core.String get chainName => $_getSZ(0);
   @$pb.TagNumber(1)
-  set isEnabled($core.bool v) { $_setBool(0, v); }
+  set chainName($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasIsEnabled() => $_has(0);
+  $core.bool hasChainName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearIsEnabled() => clearField(1);
+  void clearChainName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get isEnabled => $_getBF(1);
+  @$pb.TagNumber(2)
+  set isEnabled($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasIsEnabled() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearIsEnabled() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get isVotingEnabled => $_getBF(2);
+  @$pb.TagNumber(3)
+  set isVotingEnabled($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasIsVotingEnabled() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearIsVotingEnabled() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.bool get isFeegrantUsed => $_getBF(3);
+  @$pb.TagNumber(4)
+  set isFeegrantUsed($core.bool v) { $_setBool(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasIsFeegrantUsed() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearIsFeegrantUsed() => clearField(4);
+}
+
+class UpdateChainResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateChainResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOM<ChainSettings>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chain', subBuilder: ChainSettings.create)
+    ..hasRequiredFields = false
+  ;
+
+  UpdateChainResponse._() : super();
+  factory UpdateChainResponse({
+    ChainSettings? chain,
+  }) {
+    final _result = create();
+    if (chain != null) {
+      _result.chain = chain;
+    }
+    return _result;
+  }
+  factory UpdateChainResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateChainResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateChainResponse clone() => UpdateChainResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateChainResponse copyWith(void Function(UpdateChainResponse) updates) => super.copyWith((message) => updates(message as UpdateChainResponse)) as UpdateChainResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpdateChainResponse create() => UpdateChainResponse._();
+  UpdateChainResponse createEmptyInstance() => create();
+  static $pb.PbList<UpdateChainResponse> createRepeated() => $pb.PbList<UpdateChainResponse>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateChainResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateChainResponse>(create);
+  static UpdateChainResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  ChainSettings get chain => $_getN(0);
+  @$pb.TagNumber(1)
+  set chain(ChainSettings v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasChain() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChain() => clearField(1);
+  @$pb.TagNumber(1)
+  ChainSettings ensureChain() => $_ensure(0);
 }
 

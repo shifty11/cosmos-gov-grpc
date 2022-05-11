@@ -8,7 +8,7 @@ option go_package = "go/admin_service";
 
 service AdminService {
   rpc GetChains (google.protobuf.Empty) returns (GetChainsResponse) {}
-  rpc SetChainEnabled (SetChainEnabledRequest) returns (SetChainEnabledResponse) {}
+  rpc UpdateChain (UpdateChainRequest) returns (UpdateChainResponse) {}
 }
 
 message ChainSettings {
@@ -24,10 +24,13 @@ message GetChainsResponse {
   repeated ChainSettings chains = 1;
 }
 
-message SetChainEnabledRequest {
-  string chainId = 1;
+message UpdateChainRequest {
+  string chainName = 1;
+  bool isEnabled = 2;
+  bool isVotingEnabled = 3;
+  bool isFeegrantUsed = 4;
 }
 
-message SetChainEnabledResponse {
-  bool isEnabled = 1;
+message UpdateChainResponse {
+  ChainSettings chain = 1;
 }

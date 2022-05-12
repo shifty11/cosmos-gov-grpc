@@ -19,11 +19,12 @@ const Chain$json = const {
     const {'1': 'grantee', '3': 5, '4': 1, '5': 9, '10': 'grantee'},
     const {'1': 'denom', '3': 6, '4': 1, '5': 9, '10': 'denom'},
     const {'1': 'accountPrefix', '3': 7, '4': 1, '5': 9, '10': 'accountPrefix'},
+    const {'1': 'isFeegrantUsed', '3': 8, '4': 1, '5': 8, '10': 'isFeegrantUsed'},
   ],
 };
 
 /// Descriptor for `Chain`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIYCgdjaGFpbklkGAEgASgJUgdjaGFpbklkEhIKBG5hbWUYAiABKAlSBG5hbWUSIAoLZGlzcGxheU5hbWUYAyABKAlSC2Rpc3BsYXlOYW1lEh4KCnJwY0FkZHJlc3MYBCABKAlSCnJwY0FkZHJlc3MSGAoHZ3JhbnRlZRgFIAEoCVIHZ3JhbnRlZRIUCgVkZW5vbRgGIAEoCVIFZGVub20SJAoNYWNjb3VudFByZWZpeBgHIAEoCVINYWNjb3VudFByZWZpeA==');
+final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIYCgdjaGFpbklkGAEgASgJUgdjaGFpbklkEhIKBG5hbWUYAiABKAlSBG5hbWUSIAoLZGlzcGxheU5hbWUYAyABKAlSC2Rpc3BsYXlOYW1lEh4KCnJwY0FkZHJlc3MYBCABKAlSCnJwY0FkZHJlc3MSGAoHZ3JhbnRlZRgFIAEoCVIHZ3JhbnRlZRIUCgVkZW5vbRgGIAEoCVIFZGVub20SJAoNYWNjb3VudFByZWZpeBgHIAEoCVINYWNjb3VudFByZWZpeBImCg5pc0ZlZWdyYW50VXNlZBgIIAEoCFIOaXNGZWVncmFudFVzZWQ=');
 @$core.Deprecated('Use getSupportedChainsResponseDescriptor instead')
 const GetSupportedChainsResponse$json = const {
   '1': 'GetSupportedChainsResponse',

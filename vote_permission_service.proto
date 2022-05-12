@@ -22,6 +22,7 @@ message Chain {
   string grantee = 5;
   string denom = 6;
   string accountPrefix = 7;
+  bool isFeegrantUsed = 8;
 }
 
 message GetSupportedChainsResponse {

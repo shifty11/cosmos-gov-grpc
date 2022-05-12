@@ -20,6 +20,7 @@ class Chain extends $pb.GeneratedMessage {
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'denom')
     ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accountPrefix', protoName: 'accountPrefix')
+    ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isFeegrantUsed', protoName: 'isFeegrantUsed')
     ..hasRequiredFields = false
   ;
 
@@ -32,6 +33,7 @@ class Chain extends $pb.GeneratedMessage {
     $core.String? grantee,
     $core.String? denom,
     $core.String? accountPrefix,
+    $core.bool? isFeegrantUsed,
   }) {
     final _result = create();
     if (chainId != null) {
@@ -54,6 +56,9 @@ class Chain extends $pb.GeneratedMessage {
     }
     if (accountPrefix != null) {
       _result.accountPrefix = accountPrefix;
+    }
+    if (isFeegrantUsed != null) {
+      _result.isFeegrantUsed = isFeegrantUsed;
     }
     return _result;
   }
@@ -140,6 +145,15 @@ class Chain extends $pb.GeneratedMessage {
   $core.bool hasAccountPrefix() => $_has(6);
   @$pb.TagNumber(7)
   void clearAccountPrefix() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.bool get isFeegrantUsed => $_getBF(7);
+  @$pb.TagNumber(8)
+  set isFeegrantUsed($core.bool v) { $_setBool(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasIsFeegrantUsed() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearIsFeegrantUsed() => clearField(8);
 }
 
 class GetSupportedChainsResponse extends $pb.GeneratedMessage {

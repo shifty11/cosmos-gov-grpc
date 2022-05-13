@@ -35,9 +35,7 @@ message RegisterWalletRequest {
 }
 
 message VotePermission {
-  Chain chain = 1;
-  string granter = 2;
-  google.protobuf.Timestamp expires_at = 3;
+  google.protobuf.Timestamp expires_at = 1;
 }
 
 message Wallet {
@@ -51,10 +49,12 @@ message GetWalletsResponse {
 }
 
 message RefreshVotePermissionRequest {
-  VotePermission votePermission = 1;
+  string chainName = 1;
+  string granter = 2;
+  string grantee = 3;
 }
 
 message RefreshVotePermissionResponse {
-  VotePermission votePermission = 1;
+  Wallet wallet = 1;
 }
 

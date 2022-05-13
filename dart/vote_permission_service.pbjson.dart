@@ -50,14 +50,12 @@ final $typed_data.Uint8List registerWalletRequestDescriptor = $convert.base64Dec
 const VotePermission$json = const {
   '1': 'VotePermission',
   '2': const [
-    const {'1': 'chain', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.Chain', '10': 'chain'},
-    const {'1': 'granter', '3': 2, '4': 1, '5': 9, '10': 'granter'},
-    const {'1': 'expires_at', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiresAt'},
+    const {'1': 'expires_at', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'expiresAt'},
   ],
 };
 
 /// Descriptor for `VotePermission`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List votePermissionDescriptor = $convert.base64Decode('Cg5Wb3RlUGVybWlzc2lvbhIrCgVjaGFpbhgBIAEoCzIVLmNvc21vc2dvdl9ncnBjLkNoYWluUgVjaGFpbhIYCgdncmFudGVyGAIgASgJUgdncmFudGVyEjkKCmV4cGlyZXNfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglleHBpcmVzQXQ=');
+final $typed_data.Uint8List votePermissionDescriptor = $convert.base64Decode('Cg5Wb3RlUGVybWlzc2lvbhI5CgpleHBpcmVzX2F0GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJZXhwaXJlc0F0');
 @$core.Deprecated('Use walletDescriptor instead')
 const Wallet$json = const {
   '1': 'Wallet',
@@ -84,19 +82,21 @@ final $typed_data.Uint8List getWalletsResponseDescriptor = $convert.base64Decode
 const RefreshVotePermissionRequest$json = const {
   '1': 'RefreshVotePermissionRequest',
   '2': const [
-    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
+    const {'1': 'chainName', '3': 1, '4': 1, '5': 9, '10': 'chainName'},
+    const {'1': 'granter', '3': 2, '4': 1, '5': 9, '10': 'granter'},
+    const {'1': 'grantee', '3': 3, '4': 1, '5': 9, '10': 'grantee'},
   ],
 };
 
 /// Descriptor for `RefreshVotePermissionRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List refreshVotePermissionRequestDescriptor = $convert.base64Decode('ChxSZWZyZXNoVm90ZVBlcm1pc3Npb25SZXF1ZXN0EkYKDnZvdGVQZXJtaXNzaW9uGAEgASgLMh4uY29zbW9zZ292X2dycGMuVm90ZVBlcm1pc3Npb25SDnZvdGVQZXJtaXNzaW9u');
+final $typed_data.Uint8List refreshVotePermissionRequestDescriptor = $convert.base64Decode('ChxSZWZyZXNoVm90ZVBlcm1pc3Npb25SZXF1ZXN0EhwKCWNoYWluTmFtZRgBIAEoCVIJY2hhaW5OYW1lEhgKB2dyYW50ZXIYAiABKAlSB2dyYW50ZXISGAoHZ3JhbnRlZRgDIAEoCVIHZ3JhbnRlZQ==');
 @$core.Deprecated('Use refreshVotePermissionResponseDescriptor instead')
 const RefreshVotePermissionResponse$json = const {
   '1': 'RefreshVotePermissionResponse',
   '2': const [
-    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
+    const {'1': 'wallet', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.Wallet', '10': 'wallet'},
   ],
 };
 
 /// Descriptor for `RefreshVotePermissionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List refreshVotePermissionResponseDescriptor = $convert.base64Decode('Ch1SZWZyZXNoVm90ZVBlcm1pc3Npb25SZXNwb25zZRJGCg52b3RlUGVybWlzc2lvbhgBIAEoCzIeLmNvc21vc2dvdl9ncnBjLlZvdGVQZXJtaXNzaW9uUg52b3RlUGVybWlzc2lvbg==');
+final $typed_data.Uint8List refreshVotePermissionResponseDescriptor = $convert.base64Decode('Ch1SZWZyZXNoVm90ZVBlcm1pc3Npb25SZXNwb25zZRIuCgZ3YWxsZXQYASABKAsyFi5jb3Ntb3Nnb3ZfZ3JwYy5XYWxsZXRSBndhbGxldA==');

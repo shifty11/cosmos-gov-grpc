@@ -260,25 +260,15 @@ class RegisterWalletRequest extends $pb.GeneratedMessage {
 
 class VotePermission extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VotePermission', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOM<Chain>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chain', subBuilder: Chain.create)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'granter')
-    ..aOM<$5.Timestamp>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $5.Timestamp.create)
+    ..aOM<$5.Timestamp>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $5.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
   VotePermission._() : super();
   factory VotePermission({
-    Chain? chain,
-    $core.String? granter,
     $5.Timestamp? expiresAt,
   }) {
     final _result = create();
-    if (chain != null) {
-      _result.chain = chain;
-    }
-    if (granter != null) {
-      _result.granter = granter;
-    }
     if (expiresAt != null) {
       _result.expiresAt = expiresAt;
     }
@@ -306,35 +296,15 @@ class VotePermission extends $pb.GeneratedMessage {
   static VotePermission? _defaultInstance;
 
   @$pb.TagNumber(1)
-  Chain get chain => $_getN(0);
+  $5.Timestamp get expiresAt => $_getN(0);
   @$pb.TagNumber(1)
-  set chain(Chain v) { setField(1, v); }
+  set expiresAt($5.Timestamp v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasChain() => $_has(0);
+  $core.bool hasExpiresAt() => $_has(0);
   @$pb.TagNumber(1)
-  void clearChain() => clearField(1);
+  void clearExpiresAt() => clearField(1);
   @$pb.TagNumber(1)
-  Chain ensureChain() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.String get granter => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set granter($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasGranter() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearGranter() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $5.Timestamp get expiresAt => $_getN(2);
-  @$pb.TagNumber(3)
-  set expiresAt($5.Timestamp v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasExpiresAt() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearExpiresAt() => clearField(3);
-  @$pb.TagNumber(3)
-  $5.Timestamp ensureExpiresAt() => $_ensure(2);
+  $5.Timestamp ensureExpiresAt() => $_ensure(0);
 }
 
 class Wallet extends $pb.GeneratedMessage {
@@ -451,17 +421,27 @@ class GetWalletsResponse extends $pb.GeneratedMessage {
 
 class RefreshVotePermissionRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshVotePermissionRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOM<VotePermission>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermission', protoName: 'votePermission', subBuilder: VotePermission.create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chainName', protoName: 'chainName')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'granter')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'grantee')
     ..hasRequiredFields = false
   ;
 
   RefreshVotePermissionRequest._() : super();
   factory RefreshVotePermissionRequest({
-    VotePermission? votePermission,
+    $core.String? chainName,
+    $core.String? granter,
+    $core.String? grantee,
   }) {
     final _result = create();
-    if (votePermission != null) {
-      _result.votePermission = votePermission;
+    if (chainName != null) {
+      _result.chainName = chainName;
+    }
+    if (granter != null) {
+      _result.granter = granter;
+    }
+    if (grantee != null) {
+      _result.grantee = grantee;
     }
     return _result;
   }
@@ -487,30 +467,46 @@ class RefreshVotePermissionRequest extends $pb.GeneratedMessage {
   static RefreshVotePermissionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  VotePermission get votePermission => $_getN(0);
+  $core.String get chainName => $_getSZ(0);
   @$pb.TagNumber(1)
-  set votePermission(VotePermission v) { setField(1, v); }
+  set chainName($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasVotePermission() => $_has(0);
+  $core.bool hasChainName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearVotePermission() => clearField(1);
-  @$pb.TagNumber(1)
-  VotePermission ensureVotePermission() => $_ensure(0);
+  void clearChainName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get granter => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set granter($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasGranter() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearGranter() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get grantee => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set grantee($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGrantee() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGrantee() => clearField(3);
 }
 
 class RefreshVotePermissionResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshVotePermissionResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..aOM<VotePermission>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermission', protoName: 'votePermission', subBuilder: VotePermission.create)
+    ..aOM<Wallet>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wallet', subBuilder: Wallet.create)
     ..hasRequiredFields = false
   ;
 
   RefreshVotePermissionResponse._() : super();
   factory RefreshVotePermissionResponse({
-    VotePermission? votePermission,
+    Wallet? wallet,
   }) {
     final _result = create();
-    if (votePermission != null) {
-      _result.votePermission = votePermission;
+    if (wallet != null) {
+      _result.wallet = wallet;
     }
     return _result;
   }
@@ -536,14 +532,14 @@ class RefreshVotePermissionResponse extends $pb.GeneratedMessage {
   static RefreshVotePermissionResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  VotePermission get votePermission => $_getN(0);
+  Wallet get wallet => $_getN(0);
   @$pb.TagNumber(1)
-  set votePermission(VotePermission v) { setField(1, v); }
+  set wallet(Wallet v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasVotePermission() => $_has(0);
+  $core.bool hasWallet() => $_has(0);
   @$pb.TagNumber(1)
-  void clearVotePermission() => clearField(1);
+  void clearWallet() => clearField(1);
   @$pb.TagNumber(1)
-  VotePermission ensureVotePermission() => $_ensure(0);
+  Wallet ensureWallet() => $_ensure(0);
 }
 

@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type VotePermissionServiceClient interface {
 	GetSupportedChains(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSupportedChainsResponse, error)
-	CreateVotePermission(ctx context.Context, in *CreateVotePermissionRequest, opts ...grpc.CallOption) (*CreateVotePermissionResponse, error)
+	RegisterWallet(ctx context.Context, in *RegisterWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetVotePermissions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetVotePermissionsResponse, error)
 	RefreshVotePermission(ctx context.Context, in *RefreshVotePermissionRequest, opts ...grpc.CallOption) (*RefreshVotePermissionResponse, error)
 }
@@ -42,9 +42,9 @@ func (c *votePermissionServiceClient) GetSupportedChains(ctx context.Context, in
 	return out, nil
 }
 
-func (c *votePermissionServiceClient) CreateVotePermission(ctx context.Context, in *CreateVotePermissionRequest, opts ...grpc.CallOption) (*CreateVotePermissionResponse, error) {
-	out := new(CreateVotePermissionResponse)
-	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.VotePermissionService/CreateVotePermission", in, out, opts...)
+func (c *votePermissionServiceClient) RegisterWallet(ctx context.Context, in *RegisterWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.VotePermissionService/RegisterWallet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func (c *votePermissionServiceClient) RefreshVotePermission(ctx context.Context,
 // for forward compatibility
 type VotePermissionServiceServer interface {
 	GetSupportedChains(context.Context, *emptypb.Empty) (*GetSupportedChainsResponse, error)
-	CreateVotePermission(context.Context, *CreateVotePermissionRequest) (*CreateVotePermissionResponse, error)
+	RegisterWallet(context.Context, *RegisterWalletRequest) (*emptypb.Empty, error)
 	GetVotePermissions(context.Context, *emptypb.Empty) (*GetVotePermissionsResponse, error)
 	RefreshVotePermission(context.Context, *RefreshVotePermissionRequest) (*RefreshVotePermissionResponse, error)
 	mustEmbedUnimplementedVotePermissionServiceServer()
@@ -87,8 +87,8 @@ type UnimplementedVotePermissionServiceServer struct {
 func (UnimplementedVotePermissionServiceServer) GetSupportedChains(context.Context, *emptypb.Empty) (*GetSupportedChainsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSupportedChains not implemented")
 }
-func (UnimplementedVotePermissionServiceServer) CreateVotePermission(context.Context, *CreateVotePermissionRequest) (*CreateVotePermissionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateVotePermission not implemented")
+func (UnimplementedVotePermissionServiceServer) RegisterWallet(context.Context, *RegisterWalletRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RegisterWallet not implemented")
 }
 func (UnimplementedVotePermissionServiceServer) GetVotePermissions(context.Context, *emptypb.Empty) (*GetVotePermissionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVotePermissions not implemented")
@@ -127,20 +127,20 @@ func _VotePermissionService_GetSupportedChains_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VotePermissionService_CreateVotePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateVotePermissionRequest)
+func _VotePermissionService_RegisterWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterWalletRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VotePermissionServiceServer).CreateVotePermission(ctx, in)
+		return srv.(VotePermissionServiceServer).RegisterWallet(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cosmosgov_grpc.VotePermissionService/CreateVotePermission",
+		FullMethod: "/cosmosgov_grpc.VotePermissionService/RegisterWallet",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VotePermissionServiceServer).CreateVotePermission(ctx, req.(*CreateVotePermissionRequest))
+		return srv.(VotePermissionServiceServer).RegisterWallet(ctx, req.(*RegisterWalletRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -193,8 +193,8 @@ var VotePermissionService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _VotePermissionService_GetSupportedChains_Handler,
 		},
 		{
-			MethodName: "CreateVotePermission",
-			Handler:    _VotePermissionService_CreateVotePermission_Handler,
+			MethodName: "RegisterWallet",
+			Handler:    _VotePermissionService_RegisterWallet_Handler,
 		},
 		{
 			MethodName: "GetVotePermissions",

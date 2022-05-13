@@ -21,12 +21,11 @@ class VotePermissionServiceClient extends $grpc.Client {
           ($0.Empty value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $4.GetSupportedChainsResponse.fromBuffer(value));
-  static final _$createVotePermission = $grpc.ClientMethod<
-          $4.CreateVotePermissionRequest, $4.CreateVotePermissionResponse>(
-      '/cosmosgov_grpc.VotePermissionService/CreateVotePermission',
-      ($4.CreateVotePermissionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $4.CreateVotePermissionResponse.fromBuffer(value));
+  static final _$registerWallet =
+      $grpc.ClientMethod<$4.RegisterWalletRequest, $0.Empty>(
+          '/cosmosgov_grpc.VotePermissionService/RegisterWallet',
+          ($4.RegisterWalletRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
   static final _$getVotePermissions =
       $grpc.ClientMethod<$0.Empty, $4.GetVotePermissionsResponse>(
           '/cosmosgov_grpc.VotePermissionService/GetVotePermissions',
@@ -51,10 +50,10 @@ class VotePermissionServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getSupportedChains, request, options: options);
   }
 
-  $grpc.ResponseFuture<$4.CreateVotePermissionResponse> createVotePermission(
-      $4.CreateVotePermissionRequest request,
+  $grpc.ResponseFuture<$0.Empty> registerWallet(
+      $4.RegisterWalletRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$createVotePermission, request, options: options);
+    return $createUnaryCall(_$registerWallet, request, options: options);
   }
 
   $grpc.ResponseFuture<$4.GetVotePermissionsResponse> getVotePermissions(
@@ -81,15 +80,14 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($4.GetSupportedChainsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$4.CreateVotePermissionRequest,
-            $4.CreateVotePermissionResponse>(
-        'CreateVotePermission',
-        createVotePermission_Pre,
+    $addMethod($grpc.ServiceMethod<$4.RegisterWalletRequest, $0.Empty>(
+        'RegisterWallet',
+        registerWallet_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $4.CreateVotePermissionRequest.fromBuffer(value),
-        ($4.CreateVotePermissionResponse value) => value.writeToBuffer()));
+            $4.RegisterWalletRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Empty, $4.GetVotePermissionsResponse>(
         'GetVotePermissions',
         getVotePermissions_Pre,
@@ -113,10 +111,9 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
     return getSupportedChains(call, await request);
   }
 
-  $async.Future<$4.CreateVotePermissionResponse> createVotePermission_Pre(
-      $grpc.ServiceCall call,
-      $async.Future<$4.CreateVotePermissionRequest> request) async {
-    return createVotePermission(call, await request);
+  $async.Future<$0.Empty> registerWallet_Pre($grpc.ServiceCall call,
+      $async.Future<$4.RegisterWalletRequest> request) async {
+    return registerWallet(call, await request);
   }
 
   $async.Future<$4.GetVotePermissionsResponse> getVotePermissions_Pre(
@@ -132,8 +129,8 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
 
   $async.Future<$4.GetSupportedChainsResponse> getSupportedChains(
       $grpc.ServiceCall call, $0.Empty request);
-  $async.Future<$4.CreateVotePermissionResponse> createVotePermission(
-      $grpc.ServiceCall call, $4.CreateVotePermissionRequest request);
+  $async.Future<$0.Empty> registerWallet(
+      $grpc.ServiceCall call, $4.RegisterWalletRequest request);
   $async.Future<$4.GetVotePermissionsResponse> getVotePermissions(
       $grpc.ServiceCall call, $0.Empty request);
   $async.Future<$4.RefreshVotePermissionResponse> refreshVotePermission(

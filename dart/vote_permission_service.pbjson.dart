@@ -35,26 +35,17 @@ const GetSupportedChainsResponse$json = const {
 
 /// Descriptor for `GetSupportedChainsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSupportedChainsResponseDescriptor = $convert.base64Decode('ChpHZXRTdXBwb3J0ZWRDaGFpbnNSZXNwb25zZRItCgZjaGFpbnMYASADKAsyFS5jb3Ntb3Nnb3ZfZ3JwYy5DaGFpblIGY2hhaW5z');
-@$core.Deprecated('Use createVotePermissionRequestDescriptor instead')
-const CreateVotePermissionRequest$json = const {
-  '1': 'CreateVotePermissionRequest',
+@$core.Deprecated('Use registerWalletRequestDescriptor instead')
+const RegisterWalletRequest$json = const {
+  '1': 'RegisterWalletRequest',
   '2': const [
-    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
+    const {'1': 'chainName', '3': 1, '4': 1, '5': 9, '10': 'chainName'},
+    const {'1': 'walletAddress', '3': 2, '4': 1, '5': 9, '10': 'walletAddress'},
   ],
 };
 
-/// Descriptor for `CreateVotePermissionRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createVotePermissionRequestDescriptor = $convert.base64Decode('ChtDcmVhdGVWb3RlUGVybWlzc2lvblJlcXVlc3QSRgoOdm90ZVBlcm1pc3Npb24YASABKAsyHi5jb3Ntb3Nnb3ZfZ3JwYy5Wb3RlUGVybWlzc2lvblIOdm90ZVBlcm1pc3Npb24=');
-@$core.Deprecated('Use createVotePermissionResponseDescriptor instead')
-const CreateVotePermissionResponse$json = const {
-  '1': 'CreateVotePermissionResponse',
-  '2': const [
-    const {'1': 'votePermission', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermission'},
-  ],
-};
-
-/// Descriptor for `CreateVotePermissionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createVotePermissionResponseDescriptor = $convert.base64Decode('ChxDcmVhdGVWb3RlUGVybWlzc2lvblJlc3BvbnNlEkYKDnZvdGVQZXJtaXNzaW9uGAEgASgLMh4uY29zbW9zZ292X2dycGMuVm90ZVBlcm1pc3Npb25SDnZvdGVQZXJtaXNzaW9u');
+/// Descriptor for `RegisterWalletRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List registerWalletRequestDescriptor = $convert.base64Decode('ChVSZWdpc3RlcldhbGxldFJlcXVlc3QSHAoJY2hhaW5OYW1lGAEgASgJUgljaGFpbk5hbWUSJAoNd2FsbGV0QWRkcmVzcxgCIAEoCVINd2FsbGV0QWRkcmVzcw==');
 @$core.Deprecated('Use votePermissionDescriptor instead')
 const VotePermission$json = const {
   '1': 'VotePermission',

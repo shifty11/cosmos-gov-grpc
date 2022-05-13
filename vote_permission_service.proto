@@ -9,7 +9,7 @@ option go_package = "go/vote_permission_service";
 
 service VotePermissionService {
   rpc GetSupportedChains (google.protobuf.Empty) returns (GetSupportedChainsResponse) {}
-  rpc CreateVotePermission (CreateVotePermissionRequest) returns (CreateVotePermissionResponse) {}
+  rpc RegisterWallet (RegisterWalletRequest) returns (google.protobuf.Empty) {}
   rpc GetVotePermissions (google.protobuf.Empty) returns (GetVotePermissionsResponse) {}
   rpc RefreshVotePermission (RefreshVotePermissionRequest) returns (RefreshVotePermissionResponse) {}
 }
@@ -29,12 +29,9 @@ message GetSupportedChainsResponse {
   repeated Chain chains = 1;
 }
 
-message CreateVotePermissionRequest {
-  VotePermission votePermission = 1;
-}
-
-message CreateVotePermissionResponse {
-  VotePermission votePermission = 1;
+message RegisterWalletRequest {
+  string chainName = 1;
+  string walletAddress = 2;
 }
 
 message VotePermission {

@@ -337,45 +337,116 @@ class VotePermission extends $pb.GeneratedMessage {
   $5.Timestamp ensureExpiresAt() => $_ensure(2);
 }
 
-class GetVotePermissionsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetVotePermissionsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
-    ..pc<VotePermission>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermissions', $pb.PbFieldType.PM, protoName: 'votePermissions', subBuilder: VotePermission.create)
+class Wallet extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Wallet', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOM<Chain>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chain', subBuilder: Chain.create)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'address')
+    ..pc<VotePermission>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'votePermissions', $pb.PbFieldType.PM, protoName: 'votePermissions', subBuilder: VotePermission.create)
     ..hasRequiredFields = false
   ;
 
-  GetVotePermissionsResponse._() : super();
-  factory GetVotePermissionsResponse({
+  Wallet._() : super();
+  factory Wallet({
+    Chain? chain,
+    $core.String? address,
     $core.Iterable<VotePermission>? votePermissions,
   }) {
     final _result = create();
+    if (chain != null) {
+      _result.chain = chain;
+    }
+    if (address != null) {
+      _result.address = address;
+    }
     if (votePermissions != null) {
       _result.votePermissions.addAll(votePermissions);
     }
     return _result;
   }
-  factory GetVotePermissionsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetVotePermissionsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory Wallet.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Wallet.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  GetVotePermissionsResponse clone() => GetVotePermissionsResponse()..mergeFromMessage(this);
+  Wallet clone() => Wallet()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetVotePermissionsResponse copyWith(void Function(GetVotePermissionsResponse) updates) => super.copyWith((message) => updates(message as GetVotePermissionsResponse)) as GetVotePermissionsResponse; // ignore: deprecated_member_use
+  Wallet copyWith(void Function(Wallet) updates) => super.copyWith((message) => updates(message as Wallet)) as Wallet; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GetVotePermissionsResponse create() => GetVotePermissionsResponse._();
-  GetVotePermissionsResponse createEmptyInstance() => create();
-  static $pb.PbList<GetVotePermissionsResponse> createRepeated() => $pb.PbList<GetVotePermissionsResponse>();
+  static Wallet create() => Wallet._();
+  Wallet createEmptyInstance() => create();
+  static $pb.PbList<Wallet> createRepeated() => $pb.PbList<Wallet>();
   @$core.pragma('dart2js:noInline')
-  static GetVotePermissionsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetVotePermissionsResponse>(create);
-  static GetVotePermissionsResponse? _defaultInstance;
+  static Wallet getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Wallet>(create);
+  static Wallet? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<VotePermission> get votePermissions => $_getList(0);
+  Chain get chain => $_getN(0);
+  @$pb.TagNumber(1)
+  set chain(Chain v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasChain() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChain() => clearField(1);
+  @$pb.TagNumber(1)
+  Chain ensureChain() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $core.String get address => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set address($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasAddress() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAddress() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<VotePermission> get votePermissions => $_getList(2);
+}
+
+class GetWalletsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetWalletsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..pc<Wallet>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wallets', $pb.PbFieldType.PM, subBuilder: Wallet.create)
+    ..hasRequiredFields = false
+  ;
+
+  GetWalletsResponse._() : super();
+  factory GetWalletsResponse({
+    $core.Iterable<Wallet>? wallets,
+  }) {
+    final _result = create();
+    if (wallets != null) {
+      _result.wallets.addAll(wallets);
+    }
+    return _result;
+  }
+  factory GetWalletsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetWalletsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetWalletsResponse clone() => GetWalletsResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetWalletsResponse copyWith(void Function(GetWalletsResponse) updates) => super.copyWith((message) => updates(message as GetWalletsResponse)) as GetWalletsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetWalletsResponse create() => GetWalletsResponse._();
+  GetWalletsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetWalletsResponse> createRepeated() => $pb.PbList<GetWalletsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetWalletsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetWalletsResponse>(create);
+  static GetWalletsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<Wallet> get wallets => $_getList(0);
 }
 
 class RefreshVotePermissionRequest extends $pb.GeneratedMessage {

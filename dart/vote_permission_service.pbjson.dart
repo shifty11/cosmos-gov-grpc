@@ -58,16 +58,28 @@ const VotePermission$json = const {
 
 /// Descriptor for `VotePermission`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List votePermissionDescriptor = $convert.base64Decode('Cg5Wb3RlUGVybWlzc2lvbhIrCgVjaGFpbhgBIAEoCzIVLmNvc21vc2dvdl9ncnBjLkNoYWluUgVjaGFpbhIYCgdncmFudGVyGAIgASgJUgdncmFudGVyEjkKCmV4cGlyZXNfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUglleHBpcmVzQXQ=');
-@$core.Deprecated('Use getVotePermissionsResponseDescriptor instead')
-const GetVotePermissionsResponse$json = const {
-  '1': 'GetVotePermissionsResponse',
+@$core.Deprecated('Use walletDescriptor instead')
+const Wallet$json = const {
+  '1': 'Wallet',
   '2': const [
-    const {'1': 'votePermissions', '3': 1, '4': 3, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermissions'},
+    const {'1': 'chain', '3': 1, '4': 1, '5': 11, '6': '.cosmosgov_grpc.Chain', '10': 'chain'},
+    const {'1': 'address', '3': 2, '4': 1, '5': 9, '10': 'address'},
+    const {'1': 'votePermissions', '3': 3, '4': 3, '5': 11, '6': '.cosmosgov_grpc.VotePermission', '10': 'votePermissions'},
   ],
 };
 
-/// Descriptor for `GetVotePermissionsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getVotePermissionsResponseDescriptor = $convert.base64Decode('ChpHZXRWb3RlUGVybWlzc2lvbnNSZXNwb25zZRJICg92b3RlUGVybWlzc2lvbnMYASADKAsyHi5jb3Ntb3Nnb3ZfZ3JwYy5Wb3RlUGVybWlzc2lvblIPdm90ZVBlcm1pc3Npb25z');
+/// Descriptor for `Wallet`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List walletDescriptor = $convert.base64Decode('CgZXYWxsZXQSKwoFY2hhaW4YASABKAsyFS5jb3Ntb3Nnb3ZfZ3JwYy5DaGFpblIFY2hhaW4SGAoHYWRkcmVzcxgCIAEoCVIHYWRkcmVzcxJICg92b3RlUGVybWlzc2lvbnMYAyADKAsyHi5jb3Ntb3Nnb3ZfZ3JwYy5Wb3RlUGVybWlzc2lvblIPdm90ZVBlcm1pc3Npb25z');
+@$core.Deprecated('Use getWalletsResponseDescriptor instead')
+const GetWalletsResponse$json = const {
+  '1': 'GetWalletsResponse',
+  '2': const [
+    const {'1': 'wallets', '3': 1, '4': 3, '5': 11, '6': '.cosmosgov_grpc.Wallet', '10': 'wallets'},
+  ],
+};
+
+/// Descriptor for `GetWalletsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getWalletsResponseDescriptor = $convert.base64Decode('ChJHZXRXYWxsZXRzUmVzcG9uc2USMAoHd2FsbGV0cxgBIAMoCzIWLmNvc21vc2dvdl9ncnBjLldhbGxldFIHd2FsbGV0cw==');
 @$core.Deprecated('Use refreshVotePermissionRequestDescriptor instead')
 const RefreshVotePermissionRequest$json = const {
   '1': 'RefreshVotePermissionRequest',

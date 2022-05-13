@@ -26,6 +26,11 @@ class VotePermissionServiceClient extends $grpc.Client {
           '/cosmosgov_grpc.VotePermissionService/RegisterWallet',
           ($4.RegisterWalletRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$removeWallet =
+      $grpc.ClientMethod<$4.RemoveWalletRequest, $0.Empty>(
+          '/cosmosgov_grpc.VotePermissionService/RemoveWallet',
+          ($4.RemoveWalletRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
   static final _$getWallets =
       $grpc.ClientMethod<$0.Empty, $4.GetWalletsResponse>(
           '/cosmosgov_grpc.VotePermissionService/GetWallets',
@@ -54,6 +59,11 @@ class VotePermissionServiceClient extends $grpc.Client {
       $4.RegisterWalletRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$registerWallet, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty> removeWallet($4.RemoveWalletRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$removeWallet, request, options: options);
   }
 
   $grpc.ResponseFuture<$4.GetWalletsResponse> getWallets($0.Empty request,
@@ -87,6 +97,14 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $4.RegisterWalletRequest.fromBuffer(value),
         ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$4.RemoveWalletRequest, $0.Empty>(
+        'RemoveWallet',
+        removeWallet_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $4.RemoveWalletRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Empty, $4.GetWalletsResponse>(
         'GetWallets',
         getWallets_Pre,
@@ -115,6 +133,11 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
     return registerWallet(call, await request);
   }
 
+  $async.Future<$0.Empty> removeWallet_Pre($grpc.ServiceCall call,
+      $async.Future<$4.RemoveWalletRequest> request) async {
+    return removeWallet(call, await request);
+  }
+
   $async.Future<$4.GetWalletsResponse> getWallets_Pre(
       $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getWallets(call, await request);
@@ -130,6 +153,8 @@ abstract class VotePermissionServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.Empty request);
   $async.Future<$0.Empty> registerWallet(
       $grpc.ServiceCall call, $4.RegisterWalletRequest request);
+  $async.Future<$0.Empty> removeWallet(
+      $grpc.ServiceCall call, $4.RemoveWalletRequest request);
   $async.Future<$4.GetWalletsResponse> getWallets(
       $grpc.ServiceCall call, $0.Empty request);
   $async.Future<$4.RefreshVotePermissionResponse> refreshVotePermission(

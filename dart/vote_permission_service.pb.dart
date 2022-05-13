@@ -258,6 +258,53 @@ class RegisterWalletRequest extends $pb.GeneratedMessage {
   void clearWalletAddress() => clearField(2);
 }
 
+class RemoveWalletRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RemoveWalletRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'walletAddress', protoName: 'walletAddress')
+    ..hasRequiredFields = false
+  ;
+
+  RemoveWalletRequest._() : super();
+  factory RemoveWalletRequest({
+    $core.String? walletAddress,
+  }) {
+    final _result = create();
+    if (walletAddress != null) {
+      _result.walletAddress = walletAddress;
+    }
+    return _result;
+  }
+  factory RemoveWalletRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RemoveWalletRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RemoveWalletRequest clone() => RemoveWalletRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RemoveWalletRequest copyWith(void Function(RemoveWalletRequest) updates) => super.copyWith((message) => updates(message as RemoveWalletRequest)) as RemoveWalletRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RemoveWalletRequest create() => RemoveWalletRequest._();
+  RemoveWalletRequest createEmptyInstance() => create();
+  static $pb.PbList<RemoveWalletRequest> createRepeated() => $pb.PbList<RemoveWalletRequest>();
+  @$core.pragma('dart2js:noInline')
+  static RemoveWalletRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RemoveWalletRequest>(create);
+  static RemoveWalletRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get walletAddress => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set walletAddress($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasWalletAddress() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearWalletAddress() => clearField(1);
+}
+
 class VotePermission extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'VotePermission', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
     ..aOM<$5.Timestamp>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresAt', subBuilder: $5.Timestamp.create)

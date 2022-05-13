@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 type VotePermissionServiceClient interface {
 	GetSupportedChains(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSupportedChainsResponse, error)
 	RegisterWallet(ctx context.Context, in *RegisterWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RemoveWallet(ctx context.Context, in *RemoveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetWallets(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetWalletsResponse, error)
 	RefreshVotePermission(ctx context.Context, in *RefreshVotePermissionRequest, opts ...grpc.CallOption) (*RefreshVotePermissionResponse, error)
 }
@@ -51,6 +52,15 @@ func (c *votePermissionServiceClient) RegisterWallet(ctx context.Context, in *Re
 	return out, nil
 }
 
+func (c *votePermissionServiceClient) RemoveWallet(ctx context.Context, in *RemoveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.VotePermissionService/RemoveWallet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *votePermissionServiceClient) GetWallets(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetWalletsResponse, error) {
 	out := new(GetWalletsResponse)
 	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.VotePermissionService/GetWallets", in, out, opts...)
@@ -75,6 +85,7 @@ func (c *votePermissionServiceClient) RefreshVotePermission(ctx context.Context,
 type VotePermissionServiceServer interface {
 	GetSupportedChains(context.Context, *emptypb.Empty) (*GetSupportedChainsResponse, error)
 	RegisterWallet(context.Context, *RegisterWalletRequest) (*emptypb.Empty, error)
+	RemoveWallet(context.Context, *RemoveWalletRequest) (*emptypb.Empty, error)
 	GetWallets(context.Context, *emptypb.Empty) (*GetWalletsResponse, error)
 	RefreshVotePermission(context.Context, *RefreshVotePermissionRequest) (*RefreshVotePermissionResponse, error)
 	mustEmbedUnimplementedVotePermissionServiceServer()
@@ -89,6 +100,9 @@ func (UnimplementedVotePermissionServiceServer) GetSupportedChains(context.Conte
 }
 func (UnimplementedVotePermissionServiceServer) RegisterWallet(context.Context, *RegisterWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterWallet not implemented")
+}
+func (UnimplementedVotePermissionServiceServer) RemoveWallet(context.Context, *RemoveWalletRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveWallet not implemented")
 }
 func (UnimplementedVotePermissionServiceServer) GetWallets(context.Context, *emptypb.Empty) (*GetWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWallets not implemented")
@@ -145,6 +159,24 @@ func _VotePermissionService_RegisterWallet_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _VotePermissionService_RemoveWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VotePermissionServiceServer).RemoveWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmosgov_grpc.VotePermissionService/RemoveWallet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VotePermissionServiceServer).RemoveWallet(ctx, req.(*RemoveWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _VotePermissionService_GetWallets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
@@ -195,6 +227,10 @@ var VotePermissionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RegisterWallet",
 			Handler:    _VotePermissionService_RegisterWallet_Handler,
+		},
+		{
+			MethodName: "RemoveWallet",
+			Handler:    _VotePermissionService_RemoveWallet_Handler,
 		},
 		{
 			MethodName: "GetWallets",

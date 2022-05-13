@@ -46,6 +46,16 @@ const RegisterWalletRequest$json = const {
 
 /// Descriptor for `RegisterWalletRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List registerWalletRequestDescriptor = $convert.base64Decode('ChVSZWdpc3RlcldhbGxldFJlcXVlc3QSHAoJY2hhaW5OYW1lGAEgASgJUgljaGFpbk5hbWUSJAoNd2FsbGV0QWRkcmVzcxgCIAEoCVINd2FsbGV0QWRkcmVzcw==');
+@$core.Deprecated('Use removeWalletRequestDescriptor instead')
+const RemoveWalletRequest$json = const {
+  '1': 'RemoveWalletRequest',
+  '2': const [
+    const {'1': 'walletAddress', '3': 1, '4': 1, '5': 9, '10': 'walletAddress'},
+  ],
+};
+
+/// Descriptor for `RemoveWalletRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List removeWalletRequestDescriptor = $convert.base64Decode('ChNSZW1vdmVXYWxsZXRSZXF1ZXN0EiQKDXdhbGxldEFkZHJlc3MYASABKAlSDXdhbGxldEFkZHJlc3M=');
 @$core.Deprecated('Use votePermissionDescriptor instead')
 const VotePermission$json = const {
   '1': 'VotePermission',

@@ -27,6 +27,12 @@ class SubscriptionServiceClient extends $grpc.Client {
       ($3.ToggleSubscriptionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $3.ToggleSubscriptionResponse.fromBuffer(value));
+  static final _$updateSettings =
+      $grpc.ClientMethod<$3.UpdateSettingsRequest, $3.SettingsResponse>(
+          '/cosmosgov_grpc.SubscriptionService/UpdateSettings',
+          ($3.UpdateSettingsRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $3.SettingsResponse.fromBuffer(value));
 
   SubscriptionServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -43,6 +49,12 @@ class SubscriptionServiceClient extends $grpc.Client {
       $3.ToggleSubscriptionRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$toggleSubscription, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$3.SettingsResponse> updateSettings(
+      $3.UpdateSettingsRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateSettings, request, options: options);
   }
 }
 
@@ -66,6 +78,15 @@ abstract class SubscriptionServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $3.ToggleSubscriptionRequest.fromBuffer(value),
         ($3.ToggleSubscriptionResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$3.UpdateSettingsRequest, $3.SettingsResponse>(
+            'UpdateSettings',
+            updateSettings_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $3.UpdateSettingsRequest.fromBuffer(value),
+            ($3.SettingsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$3.GetSubscriptionsResponse> getSubscriptions_Pre(
@@ -79,8 +100,15 @@ abstract class SubscriptionServiceBase extends $grpc.Service {
     return toggleSubscription(call, await request);
   }
 
+  $async.Future<$3.SettingsResponse> updateSettings_Pre($grpc.ServiceCall call,
+      $async.Future<$3.UpdateSettingsRequest> request) async {
+    return updateSettings(call, await request);
+  }
+
   $async.Future<$3.GetSubscriptionsResponse> getSubscriptions(
       $grpc.ServiceCall call, $0.Empty request);
   $async.Future<$3.ToggleSubscriptionResponse> toggleSubscription(
       $grpc.ServiceCall call, $3.ToggleSubscriptionRequest request);
+  $async.Future<$3.SettingsResponse> updateSettings(
+      $grpc.ServiceCall call, $3.UpdateSettingsRequest request);
 }

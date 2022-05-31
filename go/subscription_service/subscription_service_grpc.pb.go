@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 type SubscriptionServiceClient interface {
 	GetSubscriptions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSubscriptionsResponse, error)
 	ToggleSubscription(ctx context.Context, in *ToggleSubscriptionRequest, opts ...grpc.CallOption) (*ToggleSubscriptionResponse, error)
+	UpdateSettings(ctx context.Context, in *UpdateSettingsRequest, opts ...grpc.CallOption) (*SettingsResponse, error)
 }
 
 type subscriptionServiceClient struct {
@@ -49,12 +50,22 @@ func (c *subscriptionServiceClient) ToggleSubscription(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *subscriptionServiceClient) UpdateSettings(ctx context.Context, in *UpdateSettingsRequest, opts ...grpc.CallOption) (*SettingsResponse, error) {
+	out := new(SettingsResponse)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.SubscriptionService/UpdateSettings", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SubscriptionServiceServer is the server API for SubscriptionService service.
 // All implementations must embed UnimplementedSubscriptionServiceServer
 // for forward compatibility
 type SubscriptionServiceServer interface {
 	GetSubscriptions(context.Context, *emptypb.Empty) (*GetSubscriptionsResponse, error)
 	ToggleSubscription(context.Context, *ToggleSubscriptionRequest) (*ToggleSubscriptionResponse, error)
+	UpdateSettings(context.Context, *UpdateSettingsRequest) (*SettingsResponse, error)
 	mustEmbedUnimplementedSubscriptionServiceServer()
 }
 
@@ -67,6 +78,9 @@ func (UnimplementedSubscriptionServiceServer) GetSubscriptions(context.Context, 
 }
 func (UnimplementedSubscriptionServiceServer) ToggleSubscription(context.Context, *ToggleSubscriptionRequest) (*ToggleSubscriptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ToggleSubscription not implemented")
+}
+func (UnimplementedSubscriptionServiceServer) UpdateSettings(context.Context, *UpdateSettingsRequest) (*SettingsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateSettings not implemented")
 }
 func (UnimplementedSubscriptionServiceServer) mustEmbedUnimplementedSubscriptionServiceServer() {}
 
@@ -117,6 +131,24 @@ func _SubscriptionService_ToggleSubscription_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SubscriptionService_UpdateSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscriptionServiceServer).UpdateSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmosgov_grpc.SubscriptionService/UpdateSettings",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscriptionServiceServer).UpdateSettings(ctx, req.(*UpdateSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SubscriptionService_ServiceDesc is the grpc.ServiceDesc for SubscriptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -131,6 +163,10 @@ var SubscriptionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToggleSubscription",
 			Handler:    _SubscriptionService_ToggleSubscription_Handler,
+		},
+		{
+			MethodName: "UpdateSettings",
+			Handler:    _SubscriptionService_UpdateSettings_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

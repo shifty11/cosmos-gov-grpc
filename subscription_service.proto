@@ -9,6 +9,7 @@ option go_package = "go/subscription_service";
 service SubscriptionService {
   rpc GetSubscriptions (google.protobuf.Empty) returns (GetSubscriptionsResponse) {}
   rpc ToggleSubscription (ToggleSubscriptionRequest) returns (ToggleSubscriptionResponse) {}
+  rpc UpdateSettings (UpdateSettingsRequest) returns (SettingsResponse) {}
 }
 
 message Subscription {
@@ -26,6 +27,7 @@ message ChatRoom {
   }
   Type TYPE = 3;
   repeated Subscription subscriptions = 4;
+  bool wantsDraftProposals = 5;
 }
 
 message GetSubscriptionsResponse {
@@ -41,3 +43,12 @@ message ToggleSubscriptionResponse {
   bool isSubscribed = 1;
 }
 
+message UpdateSettingsRequest {
+  int64 chatRoomId = 1;
+  bool wantsDraftProposals = 2;
+}
+
+message SettingsResponse {
+  int64 chatRoomId = 1;
+  bool wantsDraftProposals = 2;
+}

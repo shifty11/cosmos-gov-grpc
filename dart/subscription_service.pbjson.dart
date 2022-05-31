@@ -28,6 +28,7 @@ const ChatRoom$json = const {
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'TYPE', '3': 3, '4': 1, '5': 14, '6': '.cosmosgov_grpc.ChatRoom.Type', '10': 'TYPE'},
     const {'1': 'subscriptions', '3': 4, '4': 3, '5': 11, '6': '.cosmosgov_grpc.Subscription', '10': 'subscriptions'},
+    const {'1': 'wantsDraftProposals', '3': 5, '4': 1, '5': 8, '10': 'wantsDraftProposals'},
   ],
   '4': const [ChatRoom_Type$json],
 };
@@ -42,7 +43,7 @@ const ChatRoom_Type$json = const {
 };
 
 /// Descriptor for `ChatRoom`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List chatRoomDescriptor = $convert.base64Decode('CghDaGF0Um9vbRIOCgJpZBgBIAEoA1ICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIxCgRUWVBFGAMgASgOMh0uY29zbW9zZ292X2dycGMuQ2hhdFJvb20uVHlwZVIEVFlQRRJCCg1zdWJzY3JpcHRpb25zGAQgAygLMhwuY29zbW9zZ292X2dycGMuU3Vic2NyaXB0aW9uUg1zdWJzY3JpcHRpb25zIiEKBFR5cGUSDAoIVEVMRUdSQU0QABILCgdESVNDT1JEEAE=');
+final $typed_data.Uint8List chatRoomDescriptor = $convert.base64Decode('CghDaGF0Um9vbRIOCgJpZBgBIAEoA1ICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIxCgRUWVBFGAMgASgOMh0uY29zbW9zZ292X2dycGMuQ2hhdFJvb20uVHlwZVIEVFlQRRJCCg1zdWJzY3JpcHRpb25zGAQgAygLMhwuY29zbW9zZ292X2dycGMuU3Vic2NyaXB0aW9uUg1zdWJzY3JpcHRpb25zEjAKE3dhbnRzRHJhZnRQcm9wb3NhbHMYBSABKAhSE3dhbnRzRHJhZnRQcm9wb3NhbHMiIQoEVHlwZRIMCghURUxFR1JBTRAAEgsKB0RJU0NPUkQQAQ==');
 @$core.Deprecated('Use getSubscriptionsResponseDescriptor instead')
 const GetSubscriptionsResponse$json = const {
   '1': 'GetSubscriptionsResponse',
@@ -74,3 +75,25 @@ const ToggleSubscriptionResponse$json = const {
 
 /// Descriptor for `ToggleSubscriptionResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List toggleSubscriptionResponseDescriptor = $convert.base64Decode('ChpUb2dnbGVTdWJzY3JpcHRpb25SZXNwb25zZRIiCgxpc1N1YnNjcmliZWQYASABKAhSDGlzU3Vic2NyaWJlZA==');
+@$core.Deprecated('Use updateSettingsRequestDescriptor instead')
+const UpdateSettingsRequest$json = const {
+  '1': 'UpdateSettingsRequest',
+  '2': const [
+    const {'1': 'chatRoomId', '3': 1, '4': 1, '5': 3, '10': 'chatRoomId'},
+    const {'1': 'wantsDraftProposals', '3': 2, '4': 1, '5': 8, '10': 'wantsDraftProposals'},
+  ],
+};
+
+/// Descriptor for `UpdateSettingsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateSettingsRequestDescriptor = $convert.base64Decode('ChVVcGRhdGVTZXR0aW5nc1JlcXVlc3QSHgoKY2hhdFJvb21JZBgBIAEoA1IKY2hhdFJvb21JZBIwChN3YW50c0RyYWZ0UHJvcG9zYWxzGAIgASgIUhN3YW50c0RyYWZ0UHJvcG9zYWxz');
+@$core.Deprecated('Use settingsResponseDescriptor instead')
+const SettingsResponse$json = const {
+  '1': 'SettingsResponse',
+  '2': const [
+    const {'1': 'chatRoomId', '3': 1, '4': 1, '5': 3, '10': 'chatRoomId'},
+    const {'1': 'wantsDraftProposals', '3': 2, '4': 1, '5': 8, '10': 'wantsDraftProposals'},
+  ],
+};
+
+/// Descriptor for `SettingsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List settingsResponseDescriptor = $convert.base64Decode('ChBTZXR0aW5nc1Jlc3BvbnNlEh4KCmNoYXRSb29tSWQYASABKANSCmNoYXRSb29tSWQSMAoTd2FudHNEcmFmdFByb3Bvc2FscxgCIAEoCFITd2FudHNEcmFmdFByb3Bvc2Fscw==');

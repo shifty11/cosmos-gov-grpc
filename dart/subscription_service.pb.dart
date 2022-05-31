@@ -95,6 +95,7 @@ class ChatRoom extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..e<ChatRoom_Type>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'TYPE', $pb.PbFieldType.OE, protoName: 'TYPE', defaultOrMaker: ChatRoom_Type.TELEGRAM, valueOf: ChatRoom_Type.valueOf, enumValues: ChatRoom_Type.values)
     ..pc<Subscription>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subscriptions', $pb.PbFieldType.PM, subBuilder: Subscription.create)
+    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wantsDraftProposals', protoName: 'wantsDraftProposals')
     ..hasRequiredFields = false
   ;
 
@@ -104,6 +105,7 @@ class ChatRoom extends $pb.GeneratedMessage {
     $core.String? name,
     ChatRoom_Type? tYPE,
     $core.Iterable<Subscription>? subscriptions,
+    $core.bool? wantsDraftProposals,
   }) {
     final _result = create();
     if (id != null) {
@@ -117,6 +119,9 @@ class ChatRoom extends $pb.GeneratedMessage {
     }
     if (subscriptions != null) {
       _result.subscriptions.addAll(subscriptions);
+    }
+    if (wantsDraftProposals != null) {
+      _result.wantsDraftProposals = wantsDraftProposals;
     }
     return _result;
   }
@@ -170,6 +175,15 @@ class ChatRoom extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(4)
   $core.List<Subscription> get subscriptions => $_getList(3);
+
+  @$pb.TagNumber(5)
+  $core.bool get wantsDraftProposals => $_getBF(4);
+  @$pb.TagNumber(5)
+  set wantsDraftProposals($core.bool v) { $_setBool(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasWantsDraftProposals() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearWantsDraftProposals() => clearField(5);
 }
 
 class GetSubscriptionsResponse extends $pb.GeneratedMessage {
@@ -319,5 +333,127 @@ class ToggleSubscriptionResponse extends $pb.GeneratedMessage {
   $core.bool hasIsSubscribed() => $_has(0);
   @$pb.TagNumber(1)
   void clearIsSubscribed() => clearField(1);
+}
+
+class UpdateSettingsRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateSettingsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatRoomId', protoName: 'chatRoomId')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wantsDraftProposals', protoName: 'wantsDraftProposals')
+    ..hasRequiredFields = false
+  ;
+
+  UpdateSettingsRequest._() : super();
+  factory UpdateSettingsRequest({
+    $fixnum.Int64? chatRoomId,
+    $core.bool? wantsDraftProposals,
+  }) {
+    final _result = create();
+    if (chatRoomId != null) {
+      _result.chatRoomId = chatRoomId;
+    }
+    if (wantsDraftProposals != null) {
+      _result.wantsDraftProposals = wantsDraftProposals;
+    }
+    return _result;
+  }
+  factory UpdateSettingsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateSettingsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateSettingsRequest clone() => UpdateSettingsRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateSettingsRequest copyWith(void Function(UpdateSettingsRequest) updates) => super.copyWith((message) => updates(message as UpdateSettingsRequest)) as UpdateSettingsRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static UpdateSettingsRequest create() => UpdateSettingsRequest._();
+  UpdateSettingsRequest createEmptyInstance() => create();
+  static $pb.PbList<UpdateSettingsRequest> createRepeated() => $pb.PbList<UpdateSettingsRequest>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateSettingsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateSettingsRequest>(create);
+  static UpdateSettingsRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get chatRoomId => $_getI64(0);
+  @$pb.TagNumber(1)
+  set chatRoomId($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasChatRoomId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChatRoomId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get wantsDraftProposals => $_getBF(1);
+  @$pb.TagNumber(2)
+  set wantsDraftProposals($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasWantsDraftProposals() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearWantsDraftProposals() => clearField(2);
+}
+
+class SettingsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SettingsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chatRoomId', protoName: 'chatRoomId')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'wantsDraftProposals', protoName: 'wantsDraftProposals')
+    ..hasRequiredFields = false
+  ;
+
+  SettingsResponse._() : super();
+  factory SettingsResponse({
+    $fixnum.Int64? chatRoomId,
+    $core.bool? wantsDraftProposals,
+  }) {
+    final _result = create();
+    if (chatRoomId != null) {
+      _result.chatRoomId = chatRoomId;
+    }
+    if (wantsDraftProposals != null) {
+      _result.wantsDraftProposals = wantsDraftProposals;
+    }
+    return _result;
+  }
+  factory SettingsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory SettingsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  SettingsResponse clone() => SettingsResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  SettingsResponse copyWith(void Function(SettingsResponse) updates) => super.copyWith((message) => updates(message as SettingsResponse)) as SettingsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static SettingsResponse create() => SettingsResponse._();
+  SettingsResponse createEmptyInstance() => create();
+  static $pb.PbList<SettingsResponse> createRepeated() => $pb.PbList<SettingsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static SettingsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<SettingsResponse>(create);
+  static SettingsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get chatRoomId => $_getI64(0);
+  @$pb.TagNumber(1)
+  set chatRoomId($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasChatRoomId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChatRoomId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get wantsDraftProposals => $_getBF(1);
+  @$pb.TagNumber(2)
+  set wantsDraftProposals($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasWantsDraftProposals() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearWantsDraftProposals() => clearField(2);
 }
 

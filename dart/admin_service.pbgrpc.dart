@@ -25,6 +25,11 @@ class AdminServiceClient extends $grpc.Client {
           ($1.UpdateChainRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $1.UpdateChainResponse.fromBuffer(value));
+  static final _$reportError =
+      $grpc.ClientMethod<$1.ReportErrorRequest, $0.Empty>(
+          '/cosmosgov_grpc.AdminService/ReportError',
+          ($1.ReportErrorRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
 
   AdminServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -40,6 +45,11 @@ class AdminServiceClient extends $grpc.Client {
       $1.UpdateChainRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updateChain, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Empty> reportError($1.ReportErrorRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$reportError, request, options: options);
   }
 }
 
@@ -63,6 +73,14 @@ abstract class AdminServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $1.UpdateChainRequest.fromBuffer(value),
             ($1.UpdateChainResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.ReportErrorRequest, $0.Empty>(
+        'ReportError',
+        reportError_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $1.ReportErrorRequest.fromBuffer(value),
+        ($0.Empty value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.GetChainsResponse> getChains_Pre(
@@ -75,8 +93,15 @@ abstract class AdminServiceBase extends $grpc.Service {
     return updateChain(call, await request);
   }
 
+  $async.Future<$0.Empty> reportError_Pre($grpc.ServiceCall call,
+      $async.Future<$1.ReportErrorRequest> request) async {
+    return reportError(call, await request);
+  }
+
   $async.Future<$1.GetChainsResponse> getChains(
       $grpc.ServiceCall call, $0.Empty request);
   $async.Future<$1.UpdateChainResponse> updateChain(
       $grpc.ServiceCall call, $1.UpdateChainRequest request);
+  $async.Future<$0.Empty> reportError(
+      $grpc.ServiceCall call, $1.ReportErrorRequest request);
 }

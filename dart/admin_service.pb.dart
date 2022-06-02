@@ -305,3 +305,64 @@ class UpdateChainResponse extends $pb.GeneratedMessage {
   ChainSettings ensureChain() => $_ensure(0);
 }
 
+class ReportErrorRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ReportErrorRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'cosmosgov_grpc'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'data')
+    ..hasRequiredFields = false
+  ;
+
+  ReportErrorRequest._() : super();
+  factory ReportErrorRequest({
+    $core.String? error,
+    $core.String? data,
+  }) {
+    final _result = create();
+    if (error != null) {
+      _result.error = error;
+    }
+    if (data != null) {
+      _result.data = data;
+    }
+    return _result;
+  }
+  factory ReportErrorRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ReportErrorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ReportErrorRequest clone() => ReportErrorRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ReportErrorRequest copyWith(void Function(ReportErrorRequest) updates) => super.copyWith((message) => updates(message as ReportErrorRequest)) as ReportErrorRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ReportErrorRequest create() => ReportErrorRequest._();
+  ReportErrorRequest createEmptyInstance() => create();
+  static $pb.PbList<ReportErrorRequest> createRepeated() => $pb.PbList<ReportErrorRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ReportErrorRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ReportErrorRequest>(create);
+  static ReportErrorRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get error => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set error($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get data => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set data($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasData() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearData() => clearField(2);
+}
+

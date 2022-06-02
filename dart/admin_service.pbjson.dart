@@ -56,3 +56,14 @@ const UpdateChainResponse$json = const {
 
 /// Descriptor for `UpdateChainResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateChainResponseDescriptor = $convert.base64Decode('ChNVcGRhdGVDaGFpblJlc3BvbnNlEjMKBWNoYWluGAEgASgLMh0uY29zbW9zZ292X2dycGMuQ2hhaW5TZXR0aW5nc1IFY2hhaW4=');
+@$core.Deprecated('Use reportErrorRequestDescriptor instead')
+const ReportErrorRequest$json = const {
+  '1': 'ReportErrorRequest',
+  '2': const [
+    const {'1': 'error', '3': 1, '4': 1, '5': 9, '10': 'error'},
+    const {'1': 'data', '3': 2, '4': 1, '5': 9, '10': 'data'},
+  ],
+};
+
+/// Descriptor for `ReportErrorRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List reportErrorRequestDescriptor = $convert.base64Decode('ChJSZXBvcnRFcnJvclJlcXVlc3QSFAoFZXJyb3IYASABKAlSBWVycm9yEhIKBGRhdGEYAiABKAlSBGRhdGE=');

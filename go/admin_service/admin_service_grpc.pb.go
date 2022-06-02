@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 type AdminServiceClient interface {
 	GetChains(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetChainsResponse, error)
 	UpdateChain(ctx context.Context, in *UpdateChainRequest, opts ...grpc.CallOption) (*UpdateChainResponse, error)
+	ReportError(ctx context.Context, in *ReportErrorRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type adminServiceClient struct {
@@ -49,12 +50,22 @@ func (c *adminServiceClient) UpdateChain(ctx context.Context, in *UpdateChainReq
 	return out, nil
 }
 
+func (c *adminServiceClient) ReportError(ctx context.Context, in *ReportErrorRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/cosmosgov_grpc.AdminService/ReportError", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServiceServer is the server API for AdminService service.
 // All implementations must embed UnimplementedAdminServiceServer
 // for forward compatibility
 type AdminServiceServer interface {
 	GetChains(context.Context, *emptypb.Empty) (*GetChainsResponse, error)
 	UpdateChain(context.Context, *UpdateChainRequest) (*UpdateChainResponse, error)
+	ReportError(context.Context, *ReportErrorRequest) (*emptypb.Empty, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -67,6 +78,9 @@ func (UnimplementedAdminServiceServer) GetChains(context.Context, *emptypb.Empty
 }
 func (UnimplementedAdminServiceServer) UpdateChain(context.Context, *UpdateChainRequest) (*UpdateChainResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateChain not implemented")
+}
+func (UnimplementedAdminServiceServer) ReportError(context.Context, *ReportErrorRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReportError not implemented")
 }
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
 
@@ -117,6 +131,24 @@ func _AdminService_UpdateChain_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AdminService_ReportError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServiceServer).ReportError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmosgov_grpc.AdminService/ReportError",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServiceServer).ReportError(ctx, req.(*ReportErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AdminService_ServiceDesc is the grpc.ServiceDesc for AdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -131,6 +163,10 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateChain",
 			Handler:    _AdminService_UpdateChain_Handler,
+		},
+		{
+			MethodName: "ReportError",
+			Handler:    _AdminService_ReportError_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

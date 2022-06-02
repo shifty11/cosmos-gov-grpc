@@ -9,6 +9,7 @@ option go_package = "go/admin_service";
 service AdminService {
   rpc GetChains (google.protobuf.Empty) returns (GetChainsResponse) {}
   rpc UpdateChain (UpdateChainRequest) returns (UpdateChainResponse) {}
+  rpc ReportError (ReportErrorRequest) returns (google.protobuf.Empty) {}
 }
 
 message ChainSettings {
@@ -33,4 +34,9 @@ message UpdateChainRequest {
 
 message UpdateChainResponse {
   ChainSettings chain = 1;
+}
+
+message ReportErrorRequest {
+  string error = 1;
+  string data = 2;
 }
